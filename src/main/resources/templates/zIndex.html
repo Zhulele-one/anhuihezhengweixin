@@ -48,42 +48,11 @@
 
 <body class="hold-transition skin-purple sidebar-mini">
 
-<div class="wrapper">
-
-    <!-- 内容区域 -->
-    <div class="content-wrapper">
-
-        <!-- 内容头部 -->
-        <section class="content-header">
-            <h1>
-                首页
-                <small>主页面</small>
-            </h1>
-            <ol class="breadcrumb">
-                <li><a href="/index"><i class="fa fa-dashboard"></i> 首页</a></li>
-                <li class="active">主页面</li>
-            </ol>
-        </section>
-        <!-- 内容头部 /-->
-
-        <!-- 正文区域 -->
-        <section class="content">
-
-            <div class="box-body">
-
-            </div>
-
-        </section>
-        <!-- 正文区域 /-->
-
+    <div class="wrapper" >
+        <div class="content-wrapper" style="height: 800px;">
+            <iframe marginwidth=0 marginheight=0 width="100%" height="100%" src="/time/index.html" frameborder="no"></iframe>
+        </div>
     </div>
-    <!-- 内容区域 /-->
-
-    <!-- 底部导航 -->
-    <div th:insert="~{head/footer :: zFooterFragment}"></div>
-    <!-- 底部导航 /-->
-
-</div>
 
 
 <script th:src="@{/webapp/plugins/jQuery/jquery-2.2.3.min.js}"></script>

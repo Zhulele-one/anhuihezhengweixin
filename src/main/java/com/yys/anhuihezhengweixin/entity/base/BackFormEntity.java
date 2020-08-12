@@ -30,10 +30,5 @@ public class BackFormEntity {
     @Column(name = "backcontent")
     private String backContent;
 
-    public BackFormEntity(String name, String phone, Integer backType, String backContent) {
-        this.name = name;
-        this.phone = phone;
-        this.backType = backType;
-        this.backContent = backContent;
-    }
+
 }

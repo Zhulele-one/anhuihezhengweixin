@@ -24,6 +24,9 @@ import static com.yys.anhuihezhengweixin.util.HtmlTag.*;
 import static com.yys.anhuihezhengweixin.util.TextEntityUtils.getTextEntityEmpty;
 import static com.yys.anhuihezhengweixin.util.UrlUtils.completeUrl;
 
+/**
+ * @author zq
+ */
 @Controller
 @RequestMapping("/__culture__")
 public class CultureController {

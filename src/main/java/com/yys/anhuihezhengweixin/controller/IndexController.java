@@ -25,7 +25,6 @@ import static com.yys.anhuihezhengweixin.util.HtmlTag.*;
 public class IndexController {
 
     private final PageService pageService;
-    private final TextService textService;
 
     private final EditService editService;
 
@@ -33,10 +32,10 @@ public class IndexController {
     private List<OtherImg> businessImgList = new ArrayList<>();
     private OtherImg aboutImg = new OtherImg();
 
+
     @Autowired
-    public IndexController(PageService pageService, TextService textService, EditService editService) {
+    public IndexController(PageService pageService,EditService editService) {
         this.pageService = pageService;
-        this.textService = textService;
         this.editService = editService;
     }
 

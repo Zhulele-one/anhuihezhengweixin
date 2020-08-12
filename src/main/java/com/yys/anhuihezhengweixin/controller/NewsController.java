@@ -19,6 +19,9 @@ import static com.yys.anhuihezhengweixin.util.HTMLUtils.completeData;
 import static com.yys.anhuihezhengweixin.util.HTMLUtils.completeStringData;
 import static com.yys.anhuihezhengweixin.util.HtmlTag.*;
 
+/**
+ * @author zq
+ */
 @Controller
 @RequestMapping("/__news__")
 public class NewsController {

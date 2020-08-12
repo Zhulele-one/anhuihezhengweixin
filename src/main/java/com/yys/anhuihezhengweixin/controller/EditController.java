@@ -26,12 +26,10 @@ public class EditController {
 
     private final EditService editService;
 
-    private final FormService formService;
 
     @Autowired
-    public EditController(EditService sideBarService, FormService formService) {
+    public EditController(EditService sideBarService) {
         this.editService = sideBarService;
-        this.formService = formService;
     }
 
 

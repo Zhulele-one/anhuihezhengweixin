@@ -27,8 +27,5 @@ public class Record {
     @Column(name = "recordname")
     private String recordName;
 
-    public Record(Integer recordId, String recordName) {
-        this.recordId = recordId;
-        this.recordName = recordName;
-    }
+
 }

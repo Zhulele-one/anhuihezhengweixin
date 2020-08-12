@@ -23,7 +23,6 @@ public class ZAboutMeController {
 
     private HTMLEntity htmlEntity;
     private List<TextEntity> textEntities;
-    private List<Sidebar> sidebars;
 
     private final PageService pageService;
     private final FormService formService;

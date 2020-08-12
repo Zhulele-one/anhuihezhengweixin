@@ -297,7 +297,7 @@ public class PreViewController {
             return new SimpleResponse("保存失败,保存出错,请检查数据库",SimpleResponse.ERROR);
         }
 
-        ImgText imgText = null;
+        ImgText imgText ;
 
         if(parentId == null || parentId == 0){
             imgText = new ImgText();

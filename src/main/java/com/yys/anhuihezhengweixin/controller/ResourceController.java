@@ -20,7 +20,6 @@ public class ResourceController {
 
     private final EditService editService;
 
-    private Map<Integer,byte[]> map = new HashMap<>();
 
     @Autowired
     public ResourceController(EditService editService) {

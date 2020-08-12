@@ -26,7 +26,6 @@ public class ZNewsController {
 
     private HTMLEntity htmlEntity;
     private List<TextEntity> textEntities;
-    private List<Sidebar> sidebars;
 
 
     private final PageService pageService;
@@ -43,7 +42,7 @@ public class ZNewsController {
     @ModelAttribute
     public void init(){
         if(textEntities == null){
-            textEntities = pageService.initPageText(NEWSID,sidebars);
+            textEntities = pageService.initPageText(NEWSID,null);
         }
         if(htmlEntity == null){
             htmlEntity = pageService.initPage(NEWSID);

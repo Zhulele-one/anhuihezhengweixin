@@ -17,7 +17,7 @@ video#bgvid {
   width: auto; 
  height: auto; 
  z-index: -100; 
-  background: url(polina.jpg) no-repeat; 
+  background: no-repeat;
   background-size: cover; }
 
 .main-title {
@@ -53,7 +53,7 @@ video#bgvid {
 	height: 20vw;
 	min-width: 3.5em;
 	min-height: 3.5em;
-	background: url(../img/deco.svg) no-repeat center center;
+	background: no-repeat center center;
 	background-size: cover;
 	position: absolute;
 	top: 50%;

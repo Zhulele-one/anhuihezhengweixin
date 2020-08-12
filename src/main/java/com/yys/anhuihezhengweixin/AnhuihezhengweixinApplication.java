@@ -3,6 +3,9 @@ package com.yys.anhuihezhengweixin;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author zq
+ */
 @SpringBootApplication
 public class AnhuihezhengweixinApplication {
 

@@ -12,6 +12,7 @@ import com.yys.anhuihezhengweixin.service.TextService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -26,6 +27,7 @@ import static com.yys.anhuihezhengweixin.util.HtmlTag.*;
 import static com.yys.anhuihezhengweixin.util.UrlUtils.getImgTextUrl;
 import static com.yys.anhuihezhengweixin.util.UrlUtils.itemFilePath;
 
+@SuppressWarnings("ALL")
 @Log4j2
 @Controller
 @RequestMapping("/preview/")
@@ -107,11 +109,8 @@ public class ZPreViewController {
         ModelAndView mv =  completeStringData(htmlEntity,textEntities,ZPREVIEWTEMPLATE,EDITTEXTENTITY,baseText.getContent());
 
 
-//        mv.addObject("textEntityList",pageService.getTextEntityList());
-//        mv.addObject("textEntityId",textEntityId);
         mv.addObject("imgText",imgText);
         mv.addObject("textEntity",textEntity);
-//        mv.addObject("parentId",baseText.getTextEntityId());
         mv.addObject("textId",id);
         mv.addObject("isHaveParent",isHaveParent);
 
@@ -190,10 +189,12 @@ public class ZPreViewController {
                 if(isDeleteImgText){
                     log.info("删除ImgTexe成功:" + imgTextById);
                 } else {
+                    TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
                     throw new RuntimeException("删除列表失败" + imgTextById);
                 }
             } else {
                 log.info("删除BasePage失败");
+                TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
                 throw new RuntimeException("删除basePage失败:" + baseTextById);
             }
         } else {
@@ -201,6 +202,7 @@ public class ZPreViewController {
             if(isDeleteImgText){
                 log.info("删除列表成功:" + imgTextById);
             } else {
+                TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
                 throw new RuntimeException("删除列表失败" + imgTextById);
             }
 
@@ -223,9 +225,11 @@ public class ZPreViewController {
                 log.info("删除BasePage成功:" + baseTextById);
             } else {
                 log.info("删除BasePage失败");
+                TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
                 throw new RuntimeException("删除basePage失败:" + baseTextById);
             }
         } else {
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
            throw new RuntimeException("此文章不存在");
         }
         return new SimpleResponse("删除成功!",SimpleResponse.SUCCESS);
@@ -240,6 +244,7 @@ public class ZPreViewController {
         ImgText imgTextById = pageService.getImgTextById(Math.toIntExact(id));
 
         if(imgTextById == null){
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
             return new SimpleResponse("删除失败此列表不存在",SimpleResponse.ERROR);
         }
 
@@ -255,6 +260,7 @@ public class ZPreViewController {
         if(isDeleteJob){
             log.info("删除岗位成功");
         } else {
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
             throw new RuntimeException("删除失败,此岗位不存在");
         }
 
@@ -270,9 +276,11 @@ public class ZPreViewController {
     public SimpleResponse savePage(BaseText baseText,Long parentId,String parentTitle,String parentAbstract,String imgUrl){
 
         if(baseText == null){
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
             return new SimpleResponse("保存失败,请指定文章放置的位置",SimpleResponse.ERROR);
         }
         if(content == null){
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
             return new SimpleResponse("保存失败,请先生成页面内容",SimpleResponse.ERROR);
         }
 
@@ -293,6 +301,7 @@ public class ZPreViewController {
         BaseText baseTextNew = textService.savePage(baseText);
 
         if(baseTextNew == null){
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
             return new SimpleResponse("保存失败,保存出错,请检查数据库",SimpleResponse.ERROR);
         }
 
@@ -322,6 +331,7 @@ public class ZPreViewController {
 
         if(imgTextNew == null){
             imgTextId = 0;
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
             return new SimpleResponse("保存预览列表失败请重新保存",SimpleResponse.ERROR);
         }
 

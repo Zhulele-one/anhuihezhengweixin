@@ -23,6 +23,9 @@ import static com.yys.anhuihezhengweixin.util.HTMLUtils.completeStringData;
 import static com.yys.anhuihezhengweixin.util.HtmlTag.*;
 import static com.yys.anhuihezhengweixin.util.UrlUtils.completeUrl;
 
+/**
+ * @author zq
+ */
 @Controller
 @RequestMapping("/__business__/")
 public class BusinessController {

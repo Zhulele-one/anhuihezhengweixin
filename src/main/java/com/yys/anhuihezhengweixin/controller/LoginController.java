@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.yaml.snakeyaml.Yaml;
 
 
+/**
+ * @author zq
+ */
 @Controller
 public class LoginController {
 
@@ -30,10 +33,5 @@ public class LoginController {
     public SimpleResponse changePwd() throws Exception {
 
         return new SimpleResponse("修改失败",SimpleResponse.ERROR);
-    }
-
-    @GetMapping("/test")
-    public String test(){
-        return "1";
     }
 }

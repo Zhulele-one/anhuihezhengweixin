@@ -50,20 +50,47 @@ public class UrlUtils {
     public static String getImgTextUrl(int textEntityId){
         switch (textEntityId){
 
-            case 1 : return BIREFINGURL ;  //公司简介
-            case 2 : return NEWSMESSAGEURL; //荣誉资质
-            case 3 : return ABOUTMESSAGEURL; //业绩展示
-            case 10 : return DIFANGRULEURL; // 地方政策法规
-            case 11 : return COUNTRYRULEURL;  // 国家政策法规
-            case 7 : return COMPANYNEWSURL; //公司新闻
-            case 8 : return HANGYENEWSURL; //行业新闻
-            case 12 : return LEARNINGURL; //学习园地
-            case 13 : return PROXYURL;  //招标代理
-            case 14 : return SUPERVISIONURL; //工程监理
-            case 15 : return COSTURL;  //造价咨询
-            case 16 : return PROJECTURL; //工程设计
-            case 17 : return CULTRUEURL; //党的建设
-            case 18 : return RECRUITMESSAGE; //招贤纳士
+            //公司简介
+            case 1 : return BIREFINGURL ;
+
+            //荣誉资质
+            case 2 : return NEWSMESSAGEURL;
+
+            //业绩展示
+            case 3 : return ABOUTMESSAGEURL;
+
+            // 地方政策法规
+            case 10 : return DIFANGRULEURL;
+
+            // 国家政策法规
+            case 11 : return COUNTRYRULEURL;
+
+            //公司新闻
+            case 7 : return COMPANYNEWSURL;
+
+            //行业新闻
+            case 8 : return HANGYENEWSURL;
+
+            //学习园地
+            case 12 : return LEARNINGURL;
+
+            //招标代理
+            case 13 : return PROXYURL;
+
+            //工程监理
+            case 14 : return SUPERVISIONURL;
+
+            //造价咨询
+            case 15 : return COSTURL;
+
+            //工程设计
+            case 16 : return PROJECTURL;
+
+            //党的建设
+            case 17 : return CULTRUEURL;
+
+            //招贤纳士
+            case 18 : return RECRUITMESSAGE;
 
             default: return "";
         }

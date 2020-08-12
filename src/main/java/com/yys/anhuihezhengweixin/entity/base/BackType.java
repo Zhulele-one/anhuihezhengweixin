@@ -28,8 +28,5 @@ public class BackType {
     @Column(name = "backtype")
     private String backType;
 
-    public BackType(Integer backId, String backType) {
-        this.backId = backId;
-        this.backType = backType;
-    }
+
 }

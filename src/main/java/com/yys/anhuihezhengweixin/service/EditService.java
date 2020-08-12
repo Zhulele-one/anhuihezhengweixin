@@ -88,9 +88,7 @@ public class EditService {
         return otherImgDao.save(otherImg);
     }
 
-    public OtherImg findOtherImgById(Long id){
-        return otherImgDao.findById(id).orElse(null);
-    }
+
 
     public OtherImg findOtherImgByPicId(Integer picId){
         List<OtherImg> allByPicId = otherImgDao.findAllByPicId(picId);

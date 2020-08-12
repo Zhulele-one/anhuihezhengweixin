@@ -61,8 +61,8 @@ public class HTMLUtils {
 
 
 
-//            mv.addObject("pageable",content);
             ///只封装需要的参数
+//            mv.addObject("pageable",content);
             MPage mPage = new MPage(content.getTotalElements(), content.getSize(), content.getTotalPages(), content.getNumber());
             mv.addObject("pageable",mPage);
 
@@ -136,28 +136,6 @@ public class HTMLUtils {
         }
 
         return new ImgTextResponse(imgTextList, SimpleResponse.SUCCESS);
-    }
-
-    public static Map completeSideBar(PageService pageService){
-
-        List<HTMLEntity> allHTMLEntity = pageService.getAllHTMLEntity();
-        List<Sidebar> allSideBar = pageService.getAllSideBar();
-
-        HashMap<HTMLEntity, List<Sidebar>> sideMap = new HashMap<>();
-
-        for(HTMLEntity h : allHTMLEntity){
-            ArrayList<Sidebar> sidebars = new ArrayList<>();
-            for(Sidebar s : allSideBar){
-                if(h.getId() == s.getGroupId()){
-                    sidebars.add(s);
-                }
-            }
-            if(sidebars.size() == 0){
-                sidebars = null;
-            }
-            sideMap.put(h,sidebars);
-        }
-        return sideMap;
     }
 
 }

@@ -102,8 +102,8 @@ public class FormService {
     }
 
     public Page<FormEntity> getFormList(Integer page){
-        //默认10
-        Pageable pageable = PageRequest.of(page - 1, SIZE); // （当前页， 每页记录数，
+        //默认10 // （当前页， 每页记录数，
+        Pageable pageable = PageRequest.of(page - 1, SIZE);
         return formDao.findAll(pageable);
     }
 
@@ -117,7 +117,7 @@ public class FormService {
     }
 
     public Page<BackFormEntity> getBackFormList(Integer page) {
-        Pageable pageable = PageRequest.of(page - 1, SIZE); // （当前页， 每页记录数，
+        Pageable pageable = PageRequest.of(page - 1, SIZE);
         return backFormEntityDao.findAll(pageable);
     }
 

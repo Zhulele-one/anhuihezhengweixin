@@ -1,6 +1,5 @@
 package com.yys.anhuihezhengweixin.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.yys.anhuihezhengweixin.entity.base.*;
 import com.yys.anhuihezhengweixin.entity.content.BaseText;
 import com.yys.anhuihezhengweixin.entity.content.ImgText;
@@ -23,11 +22,13 @@ import java.io.IOException;
 import java.util.List;
 
 import static com.yys.anhuihezhengweixin.util.HTMLUtils.completeData;
-import static com.yys.anhuihezhengweixin.util.HTMLUtils.completeStringData;
 import static com.yys.anhuihezhengweixin.util.HtmlTag.*;
 import static com.yys.anhuihezhengweixin.util.TextEntityUtils.getTextEntityEmpty;
 import static com.yys.anhuihezhengweixin.util.UrlUtils.*;
 
+/**
+ * @author zq
+ */
 @Log4j2
 @Controller
 @RequestMapping("/recruit")

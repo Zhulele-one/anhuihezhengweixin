@@ -28,8 +28,4 @@ public class Job {
     @Column(name = "jobname")
     private String jobName;
 
-    public Job(Integer jobId, String jobName) {
-        this.jobId = jobId;
-        this.jobName = jobName;
-    }
 }

@@ -16,10 +16,13 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 @ToString
-@Table(name = "pay") // 指定关联的数据库的表名
+// 指定关联的数据库的表名
+@Table(name = "pay")
 public class Pay {
+
+    //strategy=GenerationType.IDENTITY 自增长
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)//strategy=GenerationType.IDENTITY 自增长
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "payid")
@@ -27,8 +30,4 @@ public class Pay {
     @Column(name = "payzoom")
     private String payZoom;
 
-    public Pay(Integer payId, String payZoom) {
-        this.payId = payId;
-        this.payZoom = payZoom;
-    }
 }

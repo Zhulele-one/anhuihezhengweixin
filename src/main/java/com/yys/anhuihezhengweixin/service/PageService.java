@@ -114,36 +114,6 @@ public class PageService {
     }
 
 
-    public List<Sidebar> initAllSidebar(){
-        List<Sidebar> allByGroupId = sideBarDao.findAll(Sort.by(Sort.Direction.ASC,"groupid","sortid"));
-        if(allByGroupId.isEmpty()){
-            log.info("侧边栏数据为空");
-            return new ArrayList<>();
-        }
-        System.out.println(allByGroupId);
-
-        ArrayList<Integer> sonList = new ArrayList<>();
-
-        ArrayList<Sidebar> outList = new ArrayList<>();
-
-        for (Sidebar s : allByGroupId){
-            if(s.getParentId() != 0){
-                sonList.add(s.getParentId());
-            }
-        }
-
-        for (Sidebar s :allByGroupId){
-            for (Integer i : sonList){
-                if(!s.getId().equals(new Long(i))){
-                    outList.add(s);
-                }
-            }
-        }
-
-        System.out.println(outList);
-
-        return outList;
-    }
 
 
 
@@ -161,7 +131,6 @@ public class PageService {
 
         Page<ImgText> list = imgTextDao.findAllByTextEntityId(textEntityId,pageable);
 
-//        List<ImgText> allByTextEntityId = imgTextDao.findAllByTextEntityId(textEntityId);
 
 
         if (list.isEmpty()) {
@@ -181,24 +150,6 @@ public class PageService {
         return allByTextEntityId;
     }
 
-    public List<TextEntity> getTextEntityList(){
-        List<TextEntity> all = textDao.findAll();
-        if(all == null){
-            log.info("TextEntity数据为空 请检查sideid");
-            return new ArrayList<>();
-        }
-        ArrayList<TextEntity> textEntities = new ArrayList<>();
-        for (TextEntity textEntity : all){
-            if(textEntity.getSideId() >= 0){
-                textEntities.add(textEntity);
-            }
-        }
-
-        textEntities.sort(Comparator.comparingInt(TextEntity::getSideId));
-
-        return textEntities;
-
-    }
 
     public ImgText saveImgText(ImgText imgText) {
         return imgTextDao.save(imgText);
@@ -245,7 +196,5 @@ public class PageService {
         }
     }
 
-    public List<Sidebar> getAllSideBar() {
-        return sideBarDao.findAll(Sort.by(Sort.Direction.ASC, "groupId","sortId"));
-    }
+
 }

@@ -23,8 +23,5 @@ public class OtherImg {
     private Integer picId;
     private String url;
 
-    public OtherImg(Integer picId, String url) {
-        this.picId = picId;
-        this.url = url;
-    }
+
 }

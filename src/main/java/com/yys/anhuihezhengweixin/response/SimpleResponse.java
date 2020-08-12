@@ -14,10 +14,7 @@ public class SimpleResponse {
     public static final Boolean SUCCESS = true;
     public static final Boolean ERROR = false;
 
-    public SimpleResponse(String[] msgs, Boolean code) {
-        this.msgs = msgs;
-        this.code = code;
-    }
+
 
     public SimpleResponse(String msg, Boolean code) {
         this.msg = msg;

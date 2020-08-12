@@ -37,9 +37,5 @@ public class Sidebar{
     @Transient
     private List<Sidebar> nodeNames;
 
-    public Sidebar(String title, String url, List<Sidebar> nodeNames) {
-        this.title = title;
-        this.url = url;
-        this.nodeNames = nodeNames;
-    }
+
 }

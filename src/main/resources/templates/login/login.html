@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Basic -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Site Metas -->
+    <title>安徽和正工程咨询有限公司-和正造价-安徽工程咨询公司</title>
+    <meta name="keywords" content="安徽和正工程咨询有限公司,和正造价,安徽工程咨询公司">
+    <meta name="description" content="安徽和正工程咨询有限公司始建于2016年9月，是一家具有独立法人资格的、新型的现代化企业制公司，企业注册资本1000万元人民币。">
+    <meta name="author" content="安徽和正工程咨询有限公司">
+
+
+    <link rel="stylesheet" th:href="@{/hezheng/css/bootstrap.min.css}">
+
+    <!--[if lt IE 9]>
+    <script th:src="@{https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js}"></script>
+    <script th:src="@{https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js}"></script>
+    <![endif]-->
+    <style>
+        .a-hover:hover{
+            background-color: #dfe4a4;
+
+        }
+        .bj{
+            height: 50%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #00bcd4;
+            content: "";
+            z-index: -1;
+        }
+
+        .outerBorder{
+            padding: 60px;
+            margin: 150px auto;
+            background: #fff;
+            box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);
+            border-radius: 2px;
+            width: 500px;
+            vertical-align: middle;
+        }
+        .outerBorders{
+            padding: 20px;
+            margin: 150px auto;
+            background: #fff;
+            box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);
+            border-radius: 2px;
+            width:90%;
+            vertical-align: middle;
+        }
+        .form{
+            padding: 30px;
+            margin-right:10px;
+        }
+        input{
+            padding:5px;
+            /*box-shadow: #316ac5;*/
+            margin-top:10px;
+            margin-bottom:10px;
+            width: 100%;
+        }
+        button{
+            margin-top:20px;
+        }
+    </style>
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="hidden-sm hidden-xs">
+    <div class="bj"></div>
+
+    <div class="outerBorder">
+        <image th:src="@{/hezheng/images/logos/logo.png}" style="height:30px;margin-left:93px"></image>
+        <!--<div class="lean">登录</div>-->
+        <!--<form name="f" action="/login" method="post">-->
+        <form class="form" name="f" th:action="@{/authentication/form}" th:method="post">
+            <br/>
+            用户名:
+            <input type="text" name="username" placeholder="name"><br/>
+            密码:
+            <input type="password" name="password" placeholder="password"><br/>
+            <!--<input class="submit" name="submit" type="submit" value="提交">-->
+            <button name="submit" type="submit" class="btn btn-default btn-block btn-primary">登录</button>
+        </form>
+    </div>
+</div>
+
+<div class="container-fluid visible-sm visible-xs">
+    <div class="bj" style="height:50%;"></div>
+    <div class="outerBorders">
+        <image  th:src="@{/hezheng/images/logos/logo.png}" style="height:30px;"></image>
+        <!--<div class="lean">登录</div>-->
+        <!--<form name="f" action="/login" method="post">-->
+        <form class="" name="f" th:action="@{/authentication/form}" th:method="post">
+            <br/>
+            用户名:
+            <input type="text" name="username" placeholder="name"><br/>
+            密码:
+            <input type="password" name="password" placeholder="password"><br/>
+            <!--<input class="submit" name="submit" type="submit" value="提交">-->
+            <button name="submit" type="submit" class="btn btn-default btn-block btn-primary">登录</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

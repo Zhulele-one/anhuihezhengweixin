@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Basic -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Site Metas -->
+    <title th:text="${HTML.title}"></title>
+    <meta name="keywords" content="安徽和正工程咨询有限公司,和正造价,安徽工程咨询公司">
+    <meta name="description" content="安徽和正工程咨询有限公司始建于2016年9月，是一家具有独立法人资格的、新型的现代化企业制公司，企业注册资本1000万元人民币。">
+    <meta name="author" content="安徽和正工程咨询有限公司">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" th:href="@{/hezheng/images/favicon.ico}" type="image/x-icon" />
+    <link rel="apple-touch-icon" th:href="@{/hezheng/images/apple-touch-icon.png}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/hezheng/css/bootstrap.min.css}">
+    <!-- Site CSS -->
+    <link rel="stylesheet" th:href="@{/hezheng/style.css}">
+    <!-- ALL VERSION CSS -->
+    <link rel="stylesheet" th:href="@{/hezheng/css/versions.css}">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" th:href="@{/hezheng/css/responsive.css}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" th:href="@{/hezheng/css/custom.css}">
+    <link rel="stylesheet" th:href="@{/hezheng/css/page.css}">
+    <link rel="stylesheet" th:href="@{/hezheng/css/mStyle.css}">
+    <link rel="stylesheet" th:href="@{/hezheng/css/formList.css}">
+
+    <!--[if lt IE 9]>
+    <script th:src="@{https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js}"></script>
+    <script th:src="@{https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js}"></script>
+    <![endif]-->
+    <style>
+        th{  padding: 0;
+            line-height: 3;
+            vertical-align: middle;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body class="politics_version">
+
+
+<div th:insert="~{head/header :: headerFragment}"></div>
+<div th:insert="~{head/header :: titleFragment}"></div>
+<div id="about" class="section wb hidden-sm hidden-xs">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 m40" >
+                <div class="message-box">
+                    <div th:insert="~{body/body :: titleFragment}"></div>
+                    <div class="row">
+
+                        <div class="row">
+                            <table class="table table-hover table-bordered  table-style" style="color:#000;border-collapse:collapse; text-align:center">
+                                <tr style="text-align: center ;background:#afd9ee;">
+                                    <th>姓名</th>
+                                    <th>年龄</th>
+                                    <th>性别</th>
+                                    <th>出生年月</th>
+                                    <th>电话号码</th>
+                                    <th>邮箱</th>
+                                    <th>应聘职位</th>
+                                    <th>学历</th>
+                                    <th>期望薪资</th>
+                                    <!--<th>简介</th>-->
+                                    <th>更多</th>
+                                </tr>
+                                <tr th:each="item:${formList}" class="fa-border">
+                                    <td style="border:1">
+                                        [[${item.name}]]
+                                    </td>
+                                    <td style="padding:15px;border:1">
+                                        [[${item.age}]]
+                                    </td>
+                                    <td style="padding:15px;border:1">
+                                        [[${item.sex == 0?'女':'男'}]]
+                                    </td>
+                                    <td style="padding:15px;border:1">
+                                        [[${item.birth}]]
+                                    </td>
+                                    <td style="padding:15px;border:1">
+                                        [[${item.phone}]]
+                                    </td>
+                                    <td style="padding:15px;border:1">
+                                        [[${item.email}]]
+                                    </td>
+                                    <td style="padding:15px;border:1">
+                                        <!--[[${item.job}]]-->
+
+                                        <div th:if="${item.job == job.jobId}" th:each="job:${jobs}">[[${job.jobName}]]</div>
+                                    </td>
+                                    <td style="padding:15px;border:1">
+                                        <!--[[${item.record}]]-->
+                                        <div th:if="${item.record == record.recordId}" th:each="record:${records}">[[${record.recordName}]]</div>
+                                    </td>
+                                    <td style="padding:15px;border:1">
+                                        <!--[[${item.pay}]]-->
+                                        <div th:if="${item.pay == pay.payId}" th:each="pay:${pays}">[[${pay.payZoom}]]</div>
+                                    </td>
+                                    <!--<td style="padding:15px;border:1">-->
+                                        <!--[[${item.introduction}]]-->
+                                    <!--</td>-->
+
+                                    <td width="20%" style="padding:15px;border:1">
+                                        <button class="showModal2 btn btn-primary">简介</button>
+                                        <button class="showModal btn btn-primary">工作经历</button>
+                                        <span class="historyMsg2" style="display: none;" th:utext="${item.introduction}"></span>
+                                        <span class="historyMsg" style="display: none;" th:utext="${item.history}"></span>
+                                        <a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()} + @{/getDocResource?path=}
+                                        + @{'} + ${item.filePath} + @{'}" class="btn btn-primary">简历</a>
+                                    </td>
+
+
+                                </tr>
+                            </table>
+                        </div><!-- end row -->
+
+                        <div>
+                            <div id="pager" class="pager clearfix">
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- end messagebox -->
+            </div><!-- end col -->
+            <hr class="hr3">
+        </div><!-- end row -->
+    </div><!-- end container -->
+</div><!-- end section -->
+
+
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">工作经历</h4>
+            </div>
+            <div class="modal-body">
+                <span id="historyInner">
+
+                </span>
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel2">简介</h4>
+            </div>
+            <div class="modal-body">
+                <span id="historyInner2">
+
+                </span>
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+
+
+<div th:insert="~{head/footer :: footerFragment}"></div>
+<div th:insert="~{head/footer :: sidebarFragment}"></div>
+<div th:insert="~{head/footer :: totopFragment}"></div>
+<div th:insert="~{head/resource :: jsFragment}"></div>
+
+
+<script>
+    let totalData= [[${pageable == null? 10:pageable.totalElements}]];//总条数
+    let pageData= [[${pageable == null? 10:pageable.size}]]; //每页条数
+    let pageCount=[[${pageable == null? 10:pageable.totalPages}]];//总页数
+    let current= [[${pageable == null ? 1:pageable.number+1}]];//当前页数
+    let pageStep= 8; //当前可见最多页码个数
+    let minPage= 5; //最小页码数，页码小于此数值则不显示上下分页按钮
+    let btnShow= true;
+    let ajaxSetData= false;
+    let i = 2;
+
+    $(function () {
+        $('.showModal').click(function () {
+            let msg = $(this).parent().find('.historyMsg').html();
+            $('#historyInner').html(msg);
+            $('#myModal').modal('show');
+        })
+
+        $('.showModal2').click(function () {
+            let msg = $(this).parent().find('.historyMsg2').html();
+            $('#historyInner2').html(msg);
+            $('#myModal2').modal('show');
+        })
+    });
+
+    $("#pager").zPager({
+        totalData:totalData,//总条数
+        pageData: pageData, //每页条数
+        pageCount:pageCount,//总页数
+        current:current,//当前页数
+        pageStep: pageStep, //当前可见最多页码个数
+        minPage: minPage, //最小页码数，页码小于此数值则不显示上下分页按钮
+        btnShow: btnShow,
+        ajaxSetData: ajaxSetData
+    });
+
+    $(function () {
+        $('.editTop').css('display','none')
+        $('.editTop1').css('display','none')
+    })
+
+    $(function () {
+        $('.pager a').click(function () {
+            console.log($(this).attr('disabled'))
+            if($(this).attr('disabled') == 'disabled'){
+                return false;
+            }
+            let url = window.location.href
+            console.log(url)
+            let cutPoint = url.lastIndexOf("/")
+            console.log($(this).html())
+            let nextUrl = url.substr(0,cutPoint) + "/" + $(this).attr('page-id')
+            console.log(nextUrl)
+            window.location.href = nextUrl
+
+        })
+    });
+
+
+    function currentPage(currentPage){
+    }
+
+
+</script>
+
+</body>
+</html>

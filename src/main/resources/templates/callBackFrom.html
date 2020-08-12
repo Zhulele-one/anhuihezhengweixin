@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Basic -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Site Metas -->
+    <title>反馈信息</title>
+    <meta name="keywords" content="安徽和正工程咨询有限公司,和正造价,安徽工程咨询公司">
+    <meta name="description" content="安徽和正工程咨询有限公司始建于2016年9月，是一家具有独立法人资格的、新型的现代化企业制公司，企业注册资本1000万元人民币。">
+    <meta name="author" content="安徽和正工程咨询有限公司">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" th:href="@{/hezheng/images/favicon.ico}" type="image/x-icon" />
+    <link rel="apple-touch-icon" th:href="@{/hezheng/images/apple-touch-icon.png}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/hezheng/css/bootstrap.min.css}">
+    <!-- Site CSS -->
+    <link rel="stylesheet" th:href="@{/hezheng/style.css}">
+    <!-- ALL VERSION CSS -->
+    <link rel="stylesheet" th:href="@{/hezheng/css/versions.css}">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" th:href="@{/hezheng/css/responsive.css}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" th:href="@{/hezheng/css/custom.css}">
+    <link rel="stylesheet" th:href="@{/hezheng/css/page.css}">
+    <link rel="stylesheet" th:href="@{/hezheng/css/mStyle.css}">
+
+    <!--[if lt IE 9]>
+    <script th:src="@{https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js}"></script>
+    <script th:src="@{https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js}"></script>
+    <![endif]-->
+
+</head>
+<body class="politics_version">
+
+
+<div th:insert="~{head/header :: headerFragment}"></div>
+<div th:insert="~{head/header :: titleHideFragment}"></div>
+
+<div id="about" class="section wb hidden-xs hidden-sm">
+    <div class="container" >
+        <div class="row">
+            <div class="section-title text-center hidden-xs hidden-sm message-box">
+                <h3>反馈中心</h3>
+                <h4>fankuizhongxin</h4>
+            </div><!-- end title -->
+            <div class="modal-body" style="border: 1px solid #ededed;box-shadow: 0 5px 14px rgba(163, 163, 163, 0.1);padding: 40px 30px;">
+                <form style="margin-top: 30px;" class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <label for="pcBackName"><span style="color:#000;">姓名 :</span></label>
+                            <input type="text" name="name" class="form-control" id="pcBackName" placeholder="姓名">
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <label for="pcBackType"><span style="color:#000;">请选择您要反馈的类型 : </span></label>
+                            <select name="backType"  id="pcBackType" class="form-control">
+                                <option th:each="item:${backTypes}" th:value="${item.backId}">[[${item.backType}]]</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <label for="pcBackPhone"><span style="color:#000;">联系方式 :</span></label>
+                            <input type="text" name="phone" class="form-control" id="pcBackPhone" placeholder="联系方式">
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="moBackContent" class="col-sm-2 control-label"><span style="color:#000;">请填写您反馈的内容 :</span></label>
+                        <div class="col-xs-12 col-sm-12">
+                            <textarea name="backContent" class="form-control" style="resize: none;" id="pcBackContent" rows="5" placeholder="您的支持使我们前行的最大动力!"></textarea>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="form-group">
+                        <div class="col-lg-offset-8 col-md-3 col-sm-12 col-xs-12 text-center">
+                            <button id="SubmitBtnPc" type="button" class="btn btn-light btn-radius btn-brd grd1 btn-block">提交反馈</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div><!-- end row -->
+    </div><!-- end container -->
+</div><!-- end section -->
+
+
+<div class="modal-content section visible-xs visible-sm">
+    <div class="modal-header" style="background-color: #cf0819;height: 50px;"></div>
+    <div class="modal-body">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <label for="moBackName"><span style="color:#000;">姓名 :</span></label>
+                    <input type="text" name="name" class="form-control" id="moBackName" placeholder="姓名">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <label for="moBackPhone"><span style="color:#000;">联系方式 :</span></label>
+                    <input type="text" name="phone" class="form-control" id="moBackPhone" placeholder="联系方式">
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <label for="moBackType"><span style="color:#000;">请选择您要反馈的类型 : </span></label>
+                    <select name="backType"  id="moBackType" class="form-control">
+                        <option th:each="item:${backTypes}" th:value="${item.backId}">[[${item.backType}]]</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="moBackContent" class="col-sm-2 control-label"><span style="color:#000;">请填写您反馈的内容 :</span></label>
+                <div class="col-xs-12 col-sm-12">
+                    <textarea name="backContent" class="form-control" style="resize: none;" id="moBackContent" rows="5" placeholder="您的支持使我们前行的最大动力!"></textarea>
+                </div>
+            </div>
+
+            <br>
+            <div class="form-group">
+                <div class="col-lg-offset-8 col-md-3 col-sm-12 col-xs-12 text-center">
+                    <button id="SubmitBtnMo" type="button" class="btn btn-light btn-radius btn-brd grd1 btn-block">提交反馈</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div><!-- end section -->
+
+<div th:insert="~{head/footer :: footerFragment}"></div>
+<div th:insert="~{head/footer :: sidebarFragment}"></div>
+<div th:insert="~{head/footer :: totopFragment}"></div>
+<div th:insert="~{head/resource :: jsFragment}"></div>
+<script>
+    $(function () {
+
+        $("#SubmitBtnMo").click(function(){
+            var name = $('#moBackName').val()
+            var phone = $('#moBackPhone').val()
+            var backtype = $('#moBackType').val()
+            var backcontent = $('#moBackContent').val()
+
+            if(name == '' || name == null){
+                swal({
+                    text: "请输入您的姓名",
+                    icon: "error",
+                    button: "确定"
+                });
+                return false;
+            }
+            if(phone == '' || phone == null){
+                swal({
+                    text: "请输入您的电话",
+                    icon: "error",
+                    button: "确定"
+                });
+                return false;
+            } else {
+                let truePhoneNum = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+                if(phone.length != 11){//手机号码
+                    if(!truePhoneNum.test(phone)) {
+                        swal({
+                            text: "请输入正确的手机号码",
+                            icon: "error",
+                            button: "确定"
+                        });
+                        return false
+                    }
+                }
+            }
+
+
+            if(backtype == '' || backtype == null){
+                swal({
+                    text: "请选择您要反馈的类型",
+                    icon: "error",
+                    button: "确定"
+                });
+                return false;
+            }
+            if(backcontent == '' || backcontent == null){
+                swal({
+                    text: "请输入您要反馈内容",
+                    icon: "error",
+                    button: "确定"
+                });
+                return false;
+            }else {
+                if(backcontent.length < 20 || backcontent.length > 200){
+                    swal({
+                        text: "请输入您的反馈字数在20-200之间",
+                        icon: "error",
+                        button: "确定"
+                    });
+                    return false;
+                }
+            }
+
+
+            swal({
+                text: "你确定要提交吗,提交后将不能更改",
+                icon: "info",
+                buttons: ["取消","确定"],
+                dangerMode: true,
+            }).then((willSubmit) => {
+                if (willSubmit) {
+                    $.ajax({
+                        type:"post",
+                        url:"[[@{/aboutme/callback/message}]]",
+                        dataType:"json",
+                        data:{
+                            name:name,
+                            phone:phone,
+                            backType:backtype,
+                            backContent:backcontent
+                        },
+                        success:function(data){
+                            if(data.code){
+                                swal({
+                                    title: "提交成功",
+                                    text: "感谢您的反馈,我们会更加努力的",
+                                    icon: "success",
+                                    button: "确定",
+                                }).then((value) => {
+                                    if(value){
+                                        $('#moBackName').val('')
+                                        $('#moBackPhone').val('')
+                                        $('#moBackType').val('')
+                                        $('#moBackContent').val('')
+                                        window.location.reload()
+                                    }
+                                });
+                            }else{
+                                swal({
+                                    title: "提交失败",
+                                    text: "请重新提交",
+                                    icon: "success",
+                                    button: "确定",
+                                });
+                            }
+                        },
+                        error:function(jqXHR){
+                            swal({
+                                title: "提交失败",
+                                text: "出错了!输入的格式可能存在问题",
+                                icon: "error",
+                                button: "确定",
+                            });
+                        }
+                    });
+                }
+            });
+        });
+
+
+
+
+
+        $("#SubmitBtnPc").click(function(){
+            var name = $('#pcBackName').val()
+            var phone = $('#pcBackPhone').val()
+            var backtype = $('#pcBackType').val()
+            var backcontent = $('#pcBackContent').val()
+
+            if(name == '' || name == null){
+                swal({
+                    text: "请输入您的姓名",
+                    icon: "error",
+                    button: "确定"
+                });
+                return false;
+            }
+            if(phone == '' || phone == null){
+                swal({
+                    text: "请输入您的电话",
+                    icon: "error",
+                    button: "确定"
+                });
+                return false;
+            } else {
+                var truePhoneNum = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+                if(phone.length != 11){//手机号码
+                    if(!truePhoneNum.test(phone)) {
+                        swal({
+                            text: "请输入正确的手机号码",
+                            icon: "error",
+                            button: "确定"
+                        });
+                        return false
+                    }
+                }
+            }
+
+
+            if(backtype == '' || backtype == null){
+                swal({
+                    text: "请选择您要反馈的类型",
+                    icon: "error",
+                    button: "确定"
+                });
+                return false;
+            }
+
+            console.log(backcontent.length)
+            if(backcontent == '' || backcontent == null){
+                swal({
+                    text: "请输入您要反馈内容",
+                    icon: "error",
+                    button: "确定"
+                });
+                return false;
+            } else {
+                if(backcontent.length < 20 || backcontent.length > 200){
+                    swal({
+                        text: "请输入您的反馈字数在20-200之间",
+                        icon: "error",
+                        button: "确定"
+                    });
+                    return false;
+                }
+            }
+
+
+            swal({
+                text: "你确定要提交吗,提交后将不能更改",
+                icon: "info",
+                buttons: ["取消","确定"],
+                dangerMode: true,
+            }).then((willSubmit) => {
+                if (willSubmit) {
+                    $.ajax({
+                        type:"post",
+                        url:"[[@{/aboutme/callback/message}]]",
+                        dataType:"json",
+                        data:{
+                            name:name,
+                            phone:phone,
+                            backType:backtype,
+                            backContent:backcontent
+                        },
+                        success:function(data){
+                            if(data.code){
+                                swal({
+                                    title: "提交成功",
+                                    text: "感谢您的反馈,我们会更加努力的",
+                                    icon: "success",
+                                    button: "确定",
+                                }).then((value) => {
+                                    if(value){
+                                        $('#pcBackName').val('')
+                                        $('#pcBackPhone').val('')
+                                        $('#pcBackType').val('')
+                                        $('#pcBackContent').val('')
+                                        window.location.reload()
+                                    }
+                                });
+                            }else{
+                                swal({
+                                    title: "提交失败",
+                                    text: "请重新提交",
+                                    icon: "success",
+                                    button: "确定",
+                                });
+                            }
+                        },
+                        error:function(jqXHR){
+                            swal({
+                                title: "提交失败",
+                                text: "出错了!输入的格式可能存在问题",
+                                icon: "error",
+                                button: "确定",
+                            });
+                        }
+                    });
+                }
+            });
+        });
+    })
+</script>
+</body>
+</html>

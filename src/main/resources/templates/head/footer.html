@@ -1,0 +1,73 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body >
+
+<div id="zfooter" th:fragment="zFooterFragment">
+    <footer style="margin-bottom: 79px;" class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 1.0.0
+        </div>
+        <strong>Copyright &copy; 2020-2022 <a href="#">研究院研发部</a>.</strong> All rights reserved.
+    </footer>
+</div>
+
+<div id="footer" th:fragment="footerFragment">
+    <!--FOOTER-->
+    <div class="copyrights">
+        <div class="container">
+            <div class="footer-left hidden-xs hidden-sm">
+                <p class="footer-links text-left" >
+                    <a th:href="@{index.html}">首页</a>
+                    <a th:href="@{about.html}">关于和正</a>
+                    <a th:href="@{news.html}">实时资讯</a>
+                    <a th:href="@{honor.html}">荣誉资质</a>
+                    <a th:href="@{call_me.html}">联系我们</a>
+                </p>
+                <p class="footer-distributed text-left">
+                    地址：[[#{hezheng.companyName}]] <br>
+                    电话：[[#{hezheng.phone}]] <br>
+                    邮箱：[[#{hezheng.email}]]
+                </p>
+                <p class="footer-company-name text-left"><span th:text="#{hezheng.copyright}">安徽和正工程咨询有限公司　版权所有 Copyright©2018 All rights reserved  <a href="#">Elpolitic</a> Design By :</span>
+            </div>
+            <div class="footer-left visible-xs visible-sm">
+                <p class="footer-company-name text-center" th:text="#{hezheng.copyrightPhone}">©2020 安徽和正工程咨询有限公司　版权所有</p>
+            </div>
+        </div><!-- end container -->
+    </div><!-- end copyrights -->
+    <!--ENDFOOTER-->
+</div>
+
+<div id="sidebar" th:fragment="sidebarFragment">
+    <!--侧边栏-->
+    <div class="side hidden-sm hidden-xs">
+        <ul>
+            <li class="showSideView"><a href="javascript:void(0);" >
+                <div class="sidebox phone"><img th:src="@{/hezheng/images/side_icon01.png}" alt="">联系电话</div>
+            </a></li>
+            <div class="sideView"><h3 style="font-size: 18px ;color: white;" class="text-center" th:text="#{hezheng.phone}" >0556-5223732</h3></div>
+
+            <li class="showSideView"><a href="javascript:void(0);" >
+                <!--使用图标请选择54*54px 内容区域为28*28-->
+                <div class="sidebox"><img th:src="@{/hezheng/images/side_icon04.png}" alt="">QQ客服</div>
+
+            </a></li>
+            <div class="sideView"><img th:src="#{hezheng.qqImgSrc}" alt=""></div>
+
+            <li class="showSideView"><a href="javascript:void(0);">
+                <div class="sidebox">
+                    <img th:src="@{/hezheng/images/weixin.png}" alt="微信二维码">微信二维码
+                </div></a>
+            </li>
+            <div class="sideView"><img th:src="#{hezheng.weixinImgSrc}" alt=""></div>
+        </ul>
+    </div>
+    <!--OVER SIDEBAR-->
+</div>
+
+<div id="to_top" th:fragment="totopFragment">
+    <!--TO-TOP-->
+    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+    <!--TO-TOP END-->
+</div>
+</body>
+</html>

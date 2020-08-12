@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- 页面meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+    <title>和正后台管理页面</title>
+    <meta name="description" content="AdminLTE2定制版">
+    <meta name="keywords" content="AdminLTE2定制版">
+
+
+
+
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.6 -->
+    <!-- Font Awesome -->
+    <!-- Ionicons -->
+    <!-- iCheck -->
+    <!-- Morris chart -->
+    <!-- jvectormap -->
+    <!-- Date Picker -->
+    <!-- Daterange picker -->
+    <!-- Bootstrap time Picker -->
+    <!--<link rel="stylesheet" href="../../../plugins/timepicker/bootstrap-timepicker.min.css">-->
+    <!-- bootstrap wysihtml5 - text editor -->
+    <!--数据表格-->
+    <!-- 表格树 -->
+    <!-- select2 -->
+    <!-- Bootstrap Color Picker -->
+    <!-- bootstrap wysihtml5 - text editor -->
+    <!--bootstrap-markdown-->
+    <!-- Theme style -->
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+    <!-- Ion Slider -->
+    <!-- ion slider Nice -->
+    <!-- bootstrap slider -->
+    <!-- bootstrap-datetimepicker -->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+
+
+
+
+    <!-- jQuery 2.2.3 -->
+    <!-- jQuery UI 1.11.4 -->
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <!-- Bootstrap 3.3.6 -->
+    <!-- Morris.js charts -->
+    <!-- Sparkline -->
+    <!-- jvectormap -->
+    <!-- jQuery Knob Chart -->
+    <!-- daterangepicker -->
+    <!-- datepicker -->
+    <!-- Bootstrap WYSIHTML5 -->
+    <!-- Slimscroll -->
+    <!-- FastClick -->
+    <!-- iCheck -->
+    <!-- AdminLTE App -->
+    <!-- 表格树 -->
+    <!-- select2 -->
+    <!-- bootstrap color picker -->
+    <!-- bootstrap time picker -->
+    <!--<script src="../../../plugins/timepicker/bootstrap-timepicker.min.js"></script>-->
+    <!-- Bootstrap WYSIHTML5 -->
+    <!--bootstrap-markdown-->
+    <!-- CK Editor -->
+    <!-- InputMask -->
+    <!-- DataTables -->
+    <!-- ChartJS 1.0.1 -->
+    <!-- FLOT CHARTS -->
+    <!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
+    <!-- FLOT PIE PLUGIN - also used to draw donut charts -->
+    <!-- FLOT CATEGORIES PLUGIN - Used to draw bar charts -->
+    <!-- jQuery Knob -->
+    <!-- Sparkline -->
+    <!-- Morris.js charts -->
+    <!-- Ion Slider -->
+    <!-- Bootstrap slider -->
+    <!-- bootstrap-datetimepicker -->
+    <!-- 页面meta /-->
+
+    <link rel="stylesheet" th:href="@{/webapp/plugins/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/webapp/plugins/font-awesome/css/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{/webapp/plugins/ionicons/css/ionicons.min.css}">
+    <link rel="stylesheet" th:href="@{/webapp/plugins/iCheck/square/blue.css}">
+    <link rel="stylesheet" th:href="@{/webapp/plugins/morris/morris.css}">
+    <link rel="stylesheet" th:href="@{/webapp/plugins/jvectormap/jquery-jvectormap-1.2.2.css}">
+    <link rel="stylesheet" th:href="@{/webapp/plugins/datepicker/datepicker3.css}">
+    <link rel="stylesheet" th:href="@{/webapp/plugins/daterangepicker/daterangepicker.css}">
+    <link rel="stylesheet" th:href="@{/webapp/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css}">
+    <link rel="stylesheet" th:href="@{/webapp/plugins/datatables/dataTables.bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/webapp/plugins/treeTable/jquery.treetable.css}">
+    <link rel="stylesheet" th:href="@{/webapp/plugins/treeTable/jquery.treetable.theme.default.css}">
+    <link rel="stylesheet" th:href="@{/webapp/plugins/select2/select2.css}">
+    <link rel="stylesheet" th:href="@{/webapp/plugins/colorpicker/bootstrap-colorpicker.min.css}">
+    <link rel="stylesheet" th:href="@{/webapp/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css}">
+    <link rel="stylesheet" th:href="@{/webapp/plugins/adminLTE/css/AdminLTE.css}">
+    <link rel="stylesheet" th:href="@{/webapp/plugins/adminLTE/css/skins/_all-skins.min.css}">
+    <link rel="stylesheet" th:href="@{/webapp/css/style.css}">
+    <link rel="stylesheet" th:href="@{/webapp/plugins/ionslider/ion.rangeSlider.css}">
+    <link rel="stylesheet" th:href="@{/webapp/plugins/ionslider/ion.rangeSlider.skinNice.css}">
+    <link rel="stylesheet" th:href="@{/webapp/plugins/bootstrap-slider/slider.css}">
+    <link rel="stylesheet" th:href="@{/webapp/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css}">
+    <link rel="stylesheet" th:href="@{/hezheng/css/page.css}">
+</head>
+
+<body class="hold-transition skin-purple sidebar-mini">
+
+<div class="wrapper">
+
+    <!-- 页面头部 -->
+    <!--<div th:insert="~{head/header :: zHeaderFragment}"></div>-->
+    <!-- 页面头部 /-->
+
+    <!-- 导航侧栏 -->
+    <!--<div th:insert="~{body/body :: zSidebarFragment}"></div>-->
+    <!-- 导航侧栏 /-->
+
+    <!-- 内容区域 -->
+    <!-- @@master = admin-layout.html-->
+    <!-- @@block = content -->
+
+    <div class="content-wrapper">
+
+        <!-- 内容头部 -->
+        <section class="content-header">
+            <h1>
+                主菜单
+                <small>数据列表</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
+                <li><a href="#">主菜单</a></li>
+                <li class="active">数据列表</li>
+            </ol>
+        </section>
+        <!-- 内容头部 /-->
+
+        <!-- 正文区域 -->
+        <section class="content">
+
+            <!-- .box-body -->
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">[[${HTML.textEntity.title}]]</h3>
+                </div>
+
+                <div class="box-body">
+
+                    <!-- 数据表格 -->
+                    <div class="table-box">
+
+                        <!--工具栏-->
+                        <div class="pull-left">
+                            <div class="form-group form-inline">
+                                <div class="btn-group">
+                                    <button type="button" onclick="delMultiData()" class="btn btn-default" title="删除"><i class="fa fa-trash-o"></i> 批量删除</button>
+                                    <button type="button" onclick="window.location.reload()" class="btn btn-default" title="刷新"><i class="fa fa-refresh"></i> 刷新</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<div class="box-tools pull-right">-->
+                        <!--<div class="has-feedback">-->
+                        <!--<input type="text" class="form-control input-sm" placeholder="搜索">-->
+                        <!--<span class="glyphicon glyphicon-search form-control-feedback"></span>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--工具栏/-->
+
+                        <!--数据列表-->
+                        <table id="dataList" class="table table-bordered table-striped table-hover dataTable">
+                            <thead>
+                            <tr>
+                                <th width="3%" style="padding-right:0;">
+                                    <input id="selall" type="checkbox" class="icheckbox_square-blue">
+                                </th>
+                                <th width="3%">ID</th>
+                                <th width="5%">姓名</th>
+                                <th width="5%">年龄</th>
+                                <th width="5%">性别</th>
+                                <th width="12%">出生年月</th>
+                                <th width="12%">电话号码</th>
+                                <th width="14%">邮箱</th>
+                                <th width="10%">应聘职位</th>
+                                <th width="8%">学历</th>
+                                <th width="8%">期望薪资</th>
+                                <th width="15%">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <tr th:each="item:${formList}" class="fa-border">
+                                <td th:attr="itemId=${item.id}"><input name="ids" type="checkbox"></td>
+                                <td >
+                                    [[${item.id}]]
+                                </td>
+                                <td >
+                                    [[${item.name}]]
+                                </td>
+                                <td >
+                                    [[${item.age}]]
+                                </td>
+                                <td >
+                                    [[${item.sex == 0?'女':'男'}]]
+                                </td>
+                                <td >
+                                    [[${item.birth}]]
+                                </td>
+                                <td >
+                                    [[${item.phone}]]
+                                </td>
+                                <td >
+                                    [[${item.email}]]
+                                </td>
+                                <td >
+                                    <!--[[${item.job}]]-->
+                                    <div th:if="${item.job == job.jobId}" th:each="job:${jobs}">[[${job.jobName}]]</div>
+                                </td>
+                                <td >
+                                    <!--[[${item.record}]]-->
+                                    <div th:if="${item.record == record.recordId}" th:each="record:${records}">[[${record.recordName}]]</div>
+                                </td>
+                                <td >
+                                    <!--[[${item.pay}]]-->
+                                    <div th:if="${item.pay == pay.payId}" th:each="pay:${pays}">[[${pay.payZoom}]]</div>
+                                </td>
+                                <!--<td style="padding:15px;border:1">-->
+                                <!--[[${item.introduction}]]-->
+                                <!--</td>-->
+
+                                <td width="20%">
+                                    <button class="showModal2 btn btn-primary">简介</button>
+                                    <button class="showModal btn btn-primary">工作经历</button>
+                                    <span class="historyMsg2" style="display: none;" th:utext="${item.introduction}"></span>
+                                    <span class="historyMsg" style="display: none;" th:utext="${item.history}"></span>
+                                    <a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()} + @{/getDocResource?path=}
+                                        + @{'} + ${item.filePath} + @{'}" class="btn btn-primary">简历</a>
+                                </td>
+
+
+                            </tr>
+
+                            </tbody>
+
+                        </table>
+                        <!--数据列表/-->
+
+                    </div>
+                    <!-- 数据表格 /-->
+
+
+                </div>
+                <!-- /.box-body -->
+
+                <!-- .box-footer-->
+                <div class="box-footer">
+                    <div class="pull-left">
+                        <div class="form-group form-inline">
+                            总共[[${pageable == null? 10:pageable.totalPages}]] 页，共[[${pageable == null? 10:pageable.totalElements}]] 条数据。 每页15 条
+                        </div>
+                    </div>
+
+                    <div class="box-tools pull-right">
+                        <div class="row" style="margin-right: 30px;">
+                            <div id="pager" class="pager clearfix"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.box-footer-->
+
+
+
+            </div>
+
+        </section>
+        <!-- 正文区域 /-->
+
+    </div>
+    <!-- @@close -->
+    <!-- 内容区域 /-->
+
+    <!-- 底部导航 -->
+    <div th:insert="~{head/footer :: zFooterFragment}"></div>
+    <!-- 底部导航 /-->
+
+
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">工作经历</h4>
+                </div>
+                <div class="modal-body">
+                <span id="historyInner">
+
+                </span>
+
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel2">简介</h4>
+                </div>
+                <div class="modal-body">
+                <span id="historyInner2">
+
+                </span>
+
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+</div>
+<div th:insert="~{head/resource :: zJsFragment}"></div>
+<script th:src="@{/hezheng/js/jquery.z-pager.js}"></script>
+<script th:src="@{/hezheng/js/sweet.js}"></script>
+
+<script>
+    let totalData= [[${pageable == null? 10:pageable.totalElements}]];//总条数
+    let pageData= [[${pageable == null? 10:pageable.size}]]; //每页条数
+    let pageCount=[[${pageable == null? 10:pageable.totalPages}]];//总页数
+    let current= [[${pageable == null ? 1:pageable.number+1}]];//当前页数
+    let pageStep= 7; //当前可见最多页码个数
+    let minPage= 5; //最小页码数，页码小于此数值则不显示上下分页按钮
+    let btnShow= true;
+    let ajaxSetData= false;
+
+    $(function () {
+        $('.showModal').click(function () {
+            let msg = $(this).parent().find('.historyMsg').html();
+            $('#historyInner').html(msg);
+            $('#myModal').modal('show');
+        })
+
+        $('.showModal2').click(function () {
+            let msg = $(this).parent().find('.historyMsg2').html();
+            $('#historyInner2').html(msg);
+            $('#myModal2').modal('show');
+        })
+    });
+
+
+
+    function delMultiData(){
+        let checkedData = $('#dataList').find('div[aria-checked=true]').parent()
+        if(checkedData.length === 0){
+            swal({
+                title:"请选择要删除的数据",
+                buttons:'确定'
+            });
+            return false
+        }
+        console.log(checkedData.length)
+        console.log(checkedData)
+        swal({
+            title:"你确定要删除吗,删除后其对应的文章也会删除",
+            icon: "info",
+            buttons: ["取消","确定"],
+            dangerMode: true,
+        }).then((willSubmit) => {
+            if (willSubmit) {
+                for (let i = 0; i < checkedData.length;i++){
+
+                    let itemId = $(checkedData[i]).attr('itemId');
+                    let url = "/recruit/deletePerson/" + itemId;
+                    $.ajax({
+                        type:"GET",
+                        url:url,
+                        dataType:"json",
+                        success:function(data){
+                            if(data.code){
+                                swal({
+                                    title: "删除成功",
+                                    text: data.msg,
+                                    icon: "success",
+                                    button: "确定",
+                                }).then((value) => {
+                                    window.location.reload()
+                                });
+                            }else{
+                                swal({
+                                    title: "删除失败",
+                                    text: data.msg,
+                                    icon: "info",
+                                    button: "确定",
+                                });
+                            }
+                        },
+                        error:function(jqXHR){
+                            swal({
+                                title: "生成",
+                                text: "出错了!" + url +"路径删除不成功",
+                                icon: "error",
+                                button: "确定",
+                            }).then((value) => {
+                                window.location.reload()
+                            });
+                        }
+                    });
+                }
+            }
+        });
+    }
+
+    $("#pager").zPager({
+        totalData:totalData,//总条数
+        pageData: pageData, //每页条数
+        pageCount:pageCount,//总页数
+        current:current,//当前页数
+        pageStep: pageStep, //当前可见最多页码个数
+        minPage: minPage, //最小页码数，页码小于此数值则不显示上下分页按钮
+        btnShow: btnShow,
+        ajaxSetData: ajaxSetData
+    });
+
+    $(function () {
+        $('.pager a').click(function () {
+            console.log($(this).attr('disabled'))
+            if('disabled' == $(this).attr('disabled')){
+                return false;
+            }
+            let url = window.location.href
+            console.log(url)
+            let cutPoint = url.lastIndexOf("/")
+            console.log($(this).html())
+            let nextUrl = url.substr(0,cutPoint) + "/" + $(this).attr('page-id')
+            console.log(nextUrl)
+            window.location.href = nextUrl
+
+        })
+    });
+
+    function currentPage(currentPage){
+    }
+
+
+    // 设置激活菜单
+    function setSidebarActive(tagUri) {
+        var liObj = $("#" + tagUri);
+        if (liObj.length > 0) {
+            liObj.parent().parent().addClass("active");
+            liObj.addClass("active");
+        }
+    }
+
+
+    $(document).ready(function() {
+        // 激活导航位置
+        setSidebarActive("19");
+    });
+
+</script>
+
+</body>
+
+</html>

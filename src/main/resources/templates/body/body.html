@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+
+<div id="zsidebar" th:fragment="zSidebarFragment">
+    <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <!-- Sidebar user panel -->
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="/webapp/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                </div>
+                <div class="pull-left info">
+                    <p>admin</p>
+                    <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
+                </div>
+            </div>
+
+
+            <!-- sidebar menu: : style can be found in sidebar.less -->
+            <ul class="sidebar-menu">
+                <li class="header">侧边操作栏</li>
+
+                <li id="admin-index"><a href="/zIndex" target="model"><i class="fa fa-dashboard"></i> <span>首页</span></a></li>
+
+                <!-- 菜单 -->
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-cogs"></i> <span>主菜单</span>
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li style="margin-left: 5px;padding-top: 10px; color: #ffffff;">
+                            <i class="fa fa-address-card-o"></i> 关于和正
+                        </li>
+
+                        <li id="1">
+                            <a th:href="@{/about/birefing}" target="model">
+                                <i class="fa fa-circle-o"></i> 关于和正
+                            </a>
+                        </li>
+
+                        <li id="2">
+                            <a th:href="@{/about/honor/1}" target="model">
+                                <i class="fa fa-circle-o"></i> 荣誉资质
+                            </a>
+                        </li>
+
+                        <li id="3">
+                            <a th:href="@{/about/achievement/1}" target="model">
+                                <i class="fa fa-circle-o"></i> 业绩展示
+                            </a>
+                        </li>
+                        <li id="5">
+                            <a th:href="@{/about/sonCompany1}" target="model">
+                                <i class="fa fa-circle-o"></i> 聚成慧信息技术有限公司
+                            </a>
+                        </li>
+                        <li id="6">
+                            <a th:href="@{/about/sonCompany2}" target="model">
+                                <i class="fa fa-circle-o"></i> 和正造价专业技术培训公司
+                            </a>
+                        </li>
+
+                        <li style="margin-left: 5px;padding-top: 5px; color: #ffffff;">
+                            <i class="fa fa-newspaper-o"></i> 实时资讯
+                        </li>
+
+                        <li id="7">
+                            <a th:href="@{/news/companyNews/1}" target="model">
+                                <i class="fa fa-circle-o"></i> 公司新闻
+                            </a>
+                        </li>
+
+                        <li id="8">
+                            <a th:href="@{/news/hangyeNews/1}" target="model">
+                                <i class="fa fa-circle-o"></i> 行业新闻
+                            </a>
+                        </li>
+
+                        <li id="10">
+                            <a th:href="@{/news/rule/10/1}" target="model">
+                                <i class="fa fa-circle-o"></i> 地方政策法规
+                            </a>
+                        </li>
+
+                        <li id="11">
+                            <a th:href="@{/news/rule/11/1}" target="model">
+                                <i class="fa fa-circle-o"></i> 国家政策法规
+                            </a>
+                        </li>
+
+                        <li id="12">
+                            <a th:href="@{/news/learning/1}" target="model">
+                                <i class="fa fa-circle-o"></i> 学习园地
+                            </a>
+                        </li>
+
+                        <li style="margin-left: 5px;padding-top: 10px; color: #ffffff;">
+                            <i class="fa fa-building"></i> 业务范围
+                        </li>
+
+
+                        <li id="13">
+                            <a th:href="@{/business/proxy/1}" target="model">
+                                <i class="fa fa-circle-o"></i> 招标代理
+                            </a>
+                        </li>
+
+                        <li id="14">
+                            <a th:href="@{/business/supervision/1}" target="model">
+                                <i class="fa fa-circle-o"></i> 工程监理
+                            </a>
+                        </li>
+
+                        <li id="15">
+                            <a th:href="@{/business/cost/1}" target="model">
+                                <i class="fa fa-circle-o"></i> 造价咨询
+                            </a>
+                        </li>
+
+                        <li id="16">
+                            <a th:href="@{/business/project/1}" target="model">
+                                <i class="fa fa-circle-o"></i> 工程设计
+                            </a>
+                        </li>
+
+
+                        <li style="margin-left: 5px;padding-top: 5px; color: #ffffff;">
+                            <i class="fa fa-product-hunt"></i> 文化党建
+                        </li>
+
+                        <li id="17">
+                            <a th:href="@{/culture/1}" target="model">
+                                <i class="fa fa-circle-o"></i> 党的建设
+                            </a>
+                        </li>
+
+
+                        <li style="margin-left: 5px;padding-top: 5px; color: #ffffff;">
+                            <i class="fa fa-map"></i> 招贤纳士
+                        </li>
+
+                        <li id="18">
+                            <a th:href="@{/recruit/1}" target="model">
+                                <i class="fa fa-circle-o"></i> 招贤纳士
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-cogs"></i> <span>内容管理</span>
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li id="19">
+                            <a th:href="@{/recruit/seeRecruitForm/1}" target="model">
+                                <i class="fa fa-circle-o"></i> 招聘信息管理
+                            </a>
+                        </li>
+                        <li id="20">
+                            <a th:href="@{/aboutme/seeBackForm/1}" target="model">
+                                <i class="fa fa-circle-o"></i> 反馈信息管理
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-cogs"></i> <span>系统管理</span>
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                    </a>
+                    <ul class="treeview-menu">
+
+                        <li id="21">
+                            <a href="/indexSetting" target="model">
+                                <i class="fa fa-circle-o"></i> 基础设置
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- 菜单 /-->
+            </ul>
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+</div>
+
+
+<div id="sidebar" th:fragment="sideFragment">
+    <!--SIDEBAR-->
+    <div class="post-media">
+        <div class="widget-title popover-title title" style="background-color: #ae1c1c">
+            <span style="margin-left: 15px;color: white;font-size: 20px" th:text="${HTML.title}"></span>
+            <button style="float: right" type="button" class="editHTML btn btn-primary" th:attr="edit_HTML=${HTML.id}">编辑</button>
+        </div>
+
+        <div class="table-bordered">
+            <ul id="accordion" class="accordion">
+                <li th:each="item:${HTML.textEntity.sidebars}">
+
+                    <div th:unless="${item.url!=null and item.url!=''}" class="link"><i th:classappend="${item.icon}" class="fa "></i>
+                        [[${item.title}]]
+                        <button type="button" class="editSidebar btn btn-primary" style="margin-left: 30px;" th:attr="edit_siderbar=${item.id},sidebar_title=${item.title}">编辑</button>
+                        <i class="fa fa-chevron-down"></i></div>
+                    <a th:href="${item.url}" th:if="${item.url!=null and item.url!=''}"><div class="ulink"><i th:classappend="${item.icon}" class="fa "></i>
+                        [[${item.title}]]
+                        <button style="float: right" type="button" class="editSidebar btn btn-primary" th:attr="edit_siderbar=${item.id}">编辑</button>
+                    </div></a>
+
+                    <ul th:unless="${item.url!=null and item.url!=''}" class="submenu">
+                        <li>
+                            <a th:href="${i.url}" th:each="i:${item.nodeNames}" href="">
+                                <button style="float: right ;color: #8c1307;margin-left:10px" type="button" class="btn-primary editSidebar btn " th:attr="edit_siderbar=${item.id},sidebar_title=${item.title}">编辑</button>
+                                [[${i.title}]]
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--SIDEBAR END-->
+</div>
+
+
+<div id="title" th:fragment="titleFragment">
+    <!--TITLE-->
+    <div class="row">
+        <div class="hidden-xs hidden-sm col-md-6">
+
+            <button type="button" class="editTop btn btn-primary" th:attr="edit_top=${HTML.textEntity.id}">编辑名称</button>
+            <button type="button" class="editTop1 btn btn-primary" th:attr="edit_top=${HTML.textEntity.id}">编辑别名</button>
+
+            <h4 class="text-uppercase" th:text="${HTML.textEntity.alia}">company News</h4>
+            <h2 th:text="${HTML.textEntity.title}">
+                公司简介
+            </h2>
+        </div>
+        <div class="visible-xs visible-sm">
+            <h2 th:text="${HTML.textEntity.title}">公司新闻</h2>
+            <h4 class="caseu" th:text="${HTML.textEntity.alia}">Company Consistent</h4>
+        </div>
+        <div class="hidden-sm hidden-xs"  style="float:right;margin-top: 30px;">
+            <ol class="breadcrumb" style="background-color: white">
+                <li><a href="#" th:text="${HTML.title}">关于和正</a></li>
+                <li class="active" th:text="${HTML.textEntity.title}">公司简介</li>
+            </ol>
+        </div>
+    </div>
+    <hr>
+    <!--TITLE END-->
+</div>
+
+
+
+
+
+</body>
+</html>

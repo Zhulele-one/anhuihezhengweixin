@@ -92,10 +92,10 @@ public class ZNewsController {
 
     @GetMapping("/rule/{itemId}/{page}")
     public ModelAndView aboutRuleList(@PathVariable("itemId") int itemId,@PathVariable("page") Integer page){
-        if(itemId == 11){
+        if(itemId == COUNTRYRULECONTENT){
             return completeData(pageService,htmlEntity,textEntities,ZITEMLISTTEMPLATE,COUNTRYRULETEXTENTITY,itemId,page,true);
         }
-        if(itemId == 10){
+        if(itemId == DIFANGRULRULECONTENT){
             return completeData(pageService,htmlEntity,textEntities,ZITEMLISTTEMPLATE,DIFANGRULETEXTENTITY,itemId,page,true);
         }
         return completeData(pageService,htmlEntity,textEntities,ZITEMLISTTEMPLATE,RULETEXTENTITY,itemId,page,true);

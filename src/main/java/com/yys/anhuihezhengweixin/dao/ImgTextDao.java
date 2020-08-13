@@ -18,6 +18,7 @@ public interface ImgTextDao extends JpaRepository<ImgText,Long> {
     /**
      * @param textEntityId 页面对象id
      * @return 获取所有textentity 通过textEntityId
+     * 返回所有列表
      */
     List<ImgText> findAllByTextEntityId(int textEntityId);
 

@@ -100,6 +100,7 @@ public class ZNewsController {
         }
         return completeData(pageService,htmlEntity,textEntities,ZITEMLISTTEMPLATE,RULETEXTENTITY,itemId,page,true);
     }
+
     @GetMapping("/rule/{itemId}/ajax/{page}")
     @ResponseBody
     public ImgTextResponse newsMessageAjaxRule(@PathVariable("itemId") int itemId,@PathVariable Integer page){

@@ -32,60 +32,6 @@ public class EditController {
         this.editService = sideBarService;
     }
 
-
-    @GetMapping("/editSiderbar")
-    public SimpleResponse editSidebar(String name, Long id) {
-        System.out.println(name + id);
-
-        Sidebar s = editService.editSidebar(name, id);
-        if (s != null) {
-            return new SimpleResponse("编辑成功", SimpleResponse.SUCCESS);
-
-        } else {
-            return new SimpleResponse("编辑失败", SimpleResponse.ERROR);
-        }
-
-    }
-
-    @GetMapping("/editHTML")
-    public SimpleResponse editHTML(String name, Long id) {
-        System.out.println(name + id);
-
-        HTMLEntity s = editService.editHTML(name, id);
-        if (s != null) {
-            return new SimpleResponse("编辑成功", SimpleResponse.SUCCESS);
-        } else {
-            return new SimpleResponse("编辑失败", SimpleResponse.ERROR);
-        }
-
-    }
-
-    @GetMapping("/editTop")
-    public SimpleResponse editTop(String name, Long id) {
-        System.out.println(name + id);
-
-        TextEntity s = editService.editTop(name, id);
-        if (s != null) {
-            return new SimpleResponse("编辑成功", SimpleResponse.SUCCESS);
-        } else {
-            return new SimpleResponse("编辑失败", SimpleResponse.ERROR);
-        }
-
-    }
-
-    @GetMapping("/editTop1")
-    public SimpleResponse editTop1(String name, Long id) {
-        System.out.println(name + id);
-
-        TextEntity s = editService.editTop1(name, id);
-        if (s != null) {
-            return new SimpleResponse("编辑成功", SimpleResponse.SUCCESS);
-        } else {
-            return new SimpleResponse("编辑失败", SimpleResponse.ERROR);
-        }
-
-    }
-
     @PostMapping("/receiveImg/{id}")
     public SimpleResponse receiveImg(@PathVariable Integer id ,@PathVariable MultipartFile file){
         if (file.isEmpty()) {

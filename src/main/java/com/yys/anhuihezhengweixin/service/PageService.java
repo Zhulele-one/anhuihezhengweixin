@@ -46,7 +46,6 @@ public class PageService {
         return byId.orElseGet(() -> {
             log.error("页面数据为空,请检查数据库html表");
             return new HTMLEntity(1L,"首页",1,null,null);
-
         });
     }
 
@@ -123,15 +122,11 @@ public class PageService {
             pageNum = 1;
         }
 
-
-
         Sort sort = Sort.by(Sort.Direction.DESC,"id");
-        //默认10
-        Pageable pageable = PageRequest.of(pageNum - 1, SIZE,sort); // （当前页， 每页记录数，
+
+        Pageable pageable = PageRequest.of(pageNum - 1, SIZE,sort);
 
         Page<ImgText> list = imgTextDao.findAllByTextEntityId(textEntityId,pageable);
-
-
 
         if (list.isEmpty()) {
             log.info("内容为空");
@@ -142,7 +137,6 @@ public class PageService {
     public List<ImgText> getContent(int textEntityId){
 
         List<ImgText> allByTextEntityId = imgTextDao.findAllByTextEntityId(textEntityId);
-
 
         if (allByTextEntityId.isEmpty()) {
             log.info("内容为空");

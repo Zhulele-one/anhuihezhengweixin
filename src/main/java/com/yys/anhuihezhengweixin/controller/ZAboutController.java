@@ -59,6 +59,7 @@ public class ZAboutController {
             byId.setTextEntityId(BIREFINGCONTENT);
             byId.setTitle("公司简介");
             byId.setContent("公司简介为空 请指定内容");
+
             textService.savePage(byId);
         }
 

@@ -74,11 +74,9 @@ public class PreViewController {
     @GetMapping("/addPage/{textEntityId}")
     public ModelAndView addPage(@PathVariable Long textEntityId){
         ModelAndView mv = completeStringData(htmlEntity,textEntities,PREVIEWTEMPLATE,BIREFIRETEXTENTITY,
-                "<h1>你可以在此区域填写内容,加入图片直接拖拽即可(请不要使用工具条中的图片按钮进行上传)</h1>");
+                "<h1>你可以在此区域填写内容,加入图片直接拖拽即可</h1>");
 
         TextEntity textEntityById = pageService.getTextEntityById(textEntityId);
-
-//        mv.addObject("textEntityList",pageService.getTextEntityList());
 
         mv.addObject("textEntity",textEntityById);
 

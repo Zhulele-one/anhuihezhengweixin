@@ -11,22 +11,24 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @ToString
-// 指定关联的数据库的表名
 @Table(name = "imgtext")
 public class ImgText {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)//strategy=GenerationType.IDENTITY 自增长
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
-    //标题
+
     private String name;
     @Column(name = "imgurl")
     private String imgUrl;
-    //要跳转的页面
+
+    /**
+     * 要跳转的页面
+     * */
     private String url;
-    //摘要
+
     @Column(name = "abstracttext")
     private String abstractText;
-    //主要内容
+
     private String content;
     @Column(name = "textentityid")
     private Integer textEntityId;

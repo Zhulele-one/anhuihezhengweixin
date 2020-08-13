@@ -55,8 +55,6 @@ public class ZCultureController {
     @GetMapping("/{page}")
     public ModelAndView culture(@PathVariable Integer page){
         return completeData(pageService,htmlEntity,textEntities,ZITEMLISTTEMPLATE,CULTUREEXTENTITY,CULTURECONTENT,page,true);
-//        mv.addObject("sideMap",completeSideBar(pageService));
-
     }
 
 

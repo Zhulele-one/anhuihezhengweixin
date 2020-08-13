@@ -96,7 +96,6 @@ public class AboutController {
     @GetMapping("/sonCompany2")
     public ModelAndView aboutSonCompany2(){
         BaseText byId = textService.getBaseTextByTextEntityId(ANHUIHEZHENGZAOJIACOMPANYCONTENT);
-
         return completeStringData(htmlEntity,textEntities,TEXTTEMPLATE,SONCOMPANYTEXTENTITY,byId);
     }
 

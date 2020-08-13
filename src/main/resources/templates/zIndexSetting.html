@@ -307,7 +307,7 @@
                                     <div class="col-md-1"><label>期望薪资</label></div>
                                     <div class="col-md-4">
                                         <select id="pay" class="form-control">
-                                            <option  th:each="item:${pays}" th:value="${item.id}">[[${item.payZoom}]]</option>
+                                            <option  th:each="item:${pays}" th:value="${item.payId}">[[${item.payZoom}]]</option>
                                         </select>
                                     </div>
                                     <div class="col-md-4">
@@ -422,7 +422,6 @@
 
     $(function () {
         $('#addPay').click(function () {
-            // $(this).parent().parent().find('select').val()
             swal({
                 text: '输入你想要添加的期望薪资',
                 content: "input",

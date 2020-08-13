@@ -20,7 +20,7 @@ import javax.persistence.*;
 public class BaseText {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)//strategy=GenerationType.IDENTITY 自增长
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
     //链接页面id

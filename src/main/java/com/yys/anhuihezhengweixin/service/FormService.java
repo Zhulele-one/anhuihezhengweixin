@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
@@ -36,28 +37,24 @@ public class FormService {
     }
 
     public List<Job> getJobs(){
-        List<Job> jobs = jobDao.findAll();
-        jobs.sort(Comparator.comparingInt(Job::getJobId));
-        return jobs;
+        Sort sort = Sort.by(Sort.Direction.ASC,"jobId");
+        return jobDao.findAll(sort);
     }
 
     public List<Record> getRecords(){
-        List<Record> records = recordDao.findAll();
-        records.sort(Comparator.comparingInt(Record::getRecordId));
-        return records;
+        Sort sort = Sort.by(Sort.Direction.ASC,"recordId");
+        return recordDao.findAll(sort);
     }
 
     public List<Pay> getPays(){
-        List<Pay> pays = payDao.findAll();
-        pays.sort(Comparator.comparingInt(Pay::getPayId));
-        return pays;
+        Sort sort = Sort.by(Sort.Direction.ASC,"payId");
+        return payDao.findAll(sort);
     }
 
 
     public List<BackType> getBackTypes(){
-        List<BackType> backTypes = backTypeDao.findAll();
-        backTypes.sort(Comparator.comparingInt(BackType::getBackId));
-        return backTypes;
+        Sort sort = Sort.by(Sort.Direction.ASC,"backId");
+        return backTypeDao.findAll(sort);
     }
 
     public FormEntity saveForm(FormEntity formEntity){
@@ -68,7 +65,6 @@ public class FormService {
 
         return backFormEntityDao.save(backFormEntity);
     }
-
 
     public Boolean deleteJobByJobId(Integer jobId){
         List<Job> allByJobId = jobDao.findAllByJobId(jobId);
@@ -102,7 +98,7 @@ public class FormService {
     }
 
     public Page<FormEntity> getFormList(Integer page){
-        //默认10 // （当前页， 每页记录数，
+
         Pageable pageable = PageRequest.of(page - 1, SIZE);
         return formDao.findAll(pageable);
     }
@@ -159,5 +155,23 @@ public class FormService {
 
     public void deleteRecord(Record recordById) {
         recordDao.delete(recordById);
+    }
+
+    public Pay findPayByPayId(Integer payId) {
+        List<Pay> allByPayId = payDao.findAllByPayId(payId);
+        if(allByPayId == null || allByPayId.size() < 1){
+            return null;
+        } else {
+            return allByPayId.get(0);
+        }
+    }
+
+    public Record findRecordByRecordId(Integer recordId) {
+        List<Record> allByRecordId = recordDao.findAllByRecordId(recordId);
+        if(allByRecordId == null || allByRecordId.size() < 1){
+            return null;
+        } else {
+            return allByRecordId.get(0);
+        }
     }
 }

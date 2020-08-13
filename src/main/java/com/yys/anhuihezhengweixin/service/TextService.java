@@ -46,7 +46,6 @@ public class TextService {
 
     public BaseText savePage(BaseText baseText) {
         return baseTextDao.save(baseText);
-
     }
 
     public boolean deleteBasePage(Long id) {

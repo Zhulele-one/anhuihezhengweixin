@@ -72,8 +72,6 @@ public class RecruitController {
 
     @GetMapping("/{page}")
     public ModelAndView recruit(@PathVariable Integer page){
-//        ModelAndView mv =  completeData(pageService,htmlEntity,textEntities,
-//                RECRUITTEMPLATE,RECRUITTEXTENTITY,RECRUITCONENT,true);
 
         ModelAndView mv = new ModelAndView(RECRUITTEMPLATE);
 

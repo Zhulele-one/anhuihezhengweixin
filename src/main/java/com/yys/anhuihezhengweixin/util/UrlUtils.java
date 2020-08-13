@@ -23,14 +23,12 @@ public class UrlUtils {
     public static String COSTURL = "/business/message/" + COSTTEXTENTITY;
     public static String PROJECTURL = "/business/message/" + PROJECTTEXTENTITY;
     public static String CULTRUEURL = "/culture/message";
-//    public static String RECRUITFORM = "/recruit/recruitForm/" + RECRUITTEXTENTITY;
     public static String RECRUITFORM = "/recruit/recruitForm";
     public static String RECRUITMESSAGE = "/recruit/message";
     public static String LEARNINGURL = "/news/message/" + LEARNINGTEXTENTITY;
     public static String COMPANYNEWSURL = "/news/message/" + COMPANYNEWSTEXTENTITY;
     public static String HANGYENEWSURL = "/news/message/" + HANGYENEWSTEXTENTITY;
 
-    // public static String filePath = "/hezheng/images/loader/";
     public static String itemFilePath = "D:/hezheng/img/";
     public static String FormFilePath = "D:/hezheng/recruit/";
     public static String otherImgPath = "D:/hezheng/otherimg/";

@@ -19,70 +19,14 @@ import java.util.Optional;
 @Service
 public class EditService {
 
-    private final SideBarDao sideBarDao;
-    private final TextDao textDao;
-
-    private final HTMLDao htmlDao;
 
     private final OtherImgDao otherImgDao;
 
     @Autowired
-    public EditService(SideBarDao sideBarDao, TextDao textDao, HTMLDao htmlDao, OtherImgDao otherImgDao) {
-        this.sideBarDao = sideBarDao;
-        this.textDao = textDao;
-        this.htmlDao = htmlDao;
+    public EditService(OtherImgDao otherImgDao) {
         this.otherImgDao = otherImgDao;
     }
 
-    public Sidebar editSidebar(String name,Long id){
-        Optional<Sidebar> byId = sideBarDao.findById(id);
-        System.out.println(name + id);
-        if (byId.isPresent()){
-            Sidebar sidebar = byId.get();
-            sidebar.setTitle(name);
-            return sideBarDao.save(sidebar);
-        }else {
-            return null;
-        }
-
-    }
-
-    public TextEntity editTop(String name,Long id){
-        Optional<TextEntity> byId = textDao.findById(id);
-        System.out.println(name + id);
-        if (byId.isPresent()){
-            TextEntity textEntity = byId.get();
-            textEntity.setTitle(name);
-            return textDao.save(textEntity);
-        }else {
-            return null;
-        }
-
-    }
-
-    public HTMLEntity editHTML(String name, Long id) {
-        Optional<HTMLEntity> byId = htmlDao.findById(id);
-        System.out.println(name + id);
-        if (byId.isPresent()){
-            HTMLEntity htmlEntity = byId.get();
-            htmlEntity.setTitle(name);
-            return htmlDao.save(htmlEntity);
-        }else {
-            return null;
-        }
-    }
-
-    public TextEntity editTop1(String name,Long id){
-        Optional<TextEntity> byId = textDao.findById(id);
-        System.out.println(name + id);
-        if (byId.isPresent()){
-            TextEntity textEntity = byId.get();
-            textEntity.setAlia(name);
-            return textDao.save(textEntity);
-        }else {
-            return null;
-        }
-    }
 
     public OtherImg saveOtherImg(OtherImg otherImg){
         return otherImgDao.save(otherImg);

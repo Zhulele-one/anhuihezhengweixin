@@ -11,14 +11,14 @@ import javax.persistence.criteria.CriteriaBuilder;
 
 @ToString
 public final class HtmlTag {
-    //所有页面标识
+
 
     public static final Integer SIZE = 15;
 
+    //所有页面标识
     public static final String HTML = "HTML";
 
     //模板标识(对应模板名称)
-
     public static final String TEXTTEMPLATE = "text";
     public static final String RECRUITTEMPLATE = "recruit";
     public static final String FORMTEMPLATE = "recruitForm";

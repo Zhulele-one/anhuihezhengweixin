@@ -60,12 +60,6 @@ public class ZAboutMeController {
         return mv;
     }
 
-//    @GetMapping("/callme")
-//    public ModelAndView aboutMeCallMe(){
-//        return completeData(pageService,htmlEntity,textEntities,
-//                CALLMETEMPLATE,ABOUTMETEXTENTITY,null,false);
-//    }
-
     @PostMapping("/callback/message")
     @ResponseBody
     public SimpleResponse aboutMeCallBackMessage(BackFormEntity backFormEntity){

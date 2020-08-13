@@ -48,7 +48,6 @@ public class ZBusinessController {
 
     @GetMapping("/proxy/{page}")
     public ModelAndView businessProxy(@PathVariable Integer page){
-
         return completeData(pageService,htmlEntity,textEntities,ZITEMLISTTEMPLATE,PROXYTEXTENTITY,PROXYCONTENT,page,true);
     }
 
@@ -93,7 +92,6 @@ public class ZBusinessController {
     @GetMapping("/message/{pageId}/{textId}")
     public ModelAndView bussinessPassage(@PathVariable("pageId") int pageId ,@PathVariable("textId") Long textId){
         BaseText byId = textService.getBaseTextById(textId);
-
         return completeStringData(htmlEntity,textEntities,TEXTTEMPLATE,pageId,byId);
     }
 

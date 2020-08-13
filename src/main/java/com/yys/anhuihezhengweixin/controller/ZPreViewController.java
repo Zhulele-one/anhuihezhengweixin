@@ -68,30 +68,16 @@ public class ZPreViewController {
 
     }
 
-
-
-
-    //////新建页面方法
-
     @GetMapping("/addPage/{textEntityId}")
     public ModelAndView addPage(@PathVariable Long textEntityId){
         ModelAndView mv = completeStringData(htmlEntity,textEntities,ZPREVIEWTEMPLATE,BIREFIRETEXTENTITY,
                 "<h1>你可以在此区域填写内容,加入图片直接拖拽即可(请不要使用工具条中的图片按钮进行上传)</h1>");
 
         TextEntity textEntityById = pageService.getTextEntityById(textEntityId);
-
-
         mv.addObject("textEntity",textEntityById);
 
         return mv;
     }
-
-
-
-
-    ////编辑页面方法
-
-
 
 
     @GetMapping("/editPage/{id}/{isHaveParent}")
@@ -105,7 +91,6 @@ public class ZPreViewController {
 
         TextEntity textEntity = pageService.getTextEntityBySideId(textEntityId);
 
-
         ModelAndView mv =  completeStringData(htmlEntity,textEntities,ZPREVIEWTEMPLATE,EDITTEXTENTITY,baseText.getContent());
 
 
@@ -118,7 +103,6 @@ public class ZPreViewController {
         return mv;
     }
 
-    //预览页面方法
 
     @PostMapping("/previewPage")
     @ResponseBody
@@ -130,8 +114,10 @@ public class ZPreViewController {
         return new SimpleResponse("/preview/previewPage0",SimpleResponse.SUCCESS);
     }
 
-    ///显示预览页面
-
+    /**
+     * 显示预览页面
+     * @return 返回mv
+     */
     @GetMapping("/previewPage0")
     public ModelAndView previewPage0(){
         BaseText baseText = new BaseText();

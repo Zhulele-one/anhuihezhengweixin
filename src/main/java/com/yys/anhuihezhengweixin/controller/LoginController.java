@@ -29,9 +29,4 @@ public class LoginController {
         return "/login/fail";
     }
 
-    @PostMapping("/changePassword")
-    public SimpleResponse changePwd() throws Exception {
-
-        return new SimpleResponse("修改失败",SimpleResponse.ERROR);
-    }
 }

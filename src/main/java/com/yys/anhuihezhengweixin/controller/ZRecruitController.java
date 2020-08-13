@@ -12,6 +12,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -125,6 +126,7 @@ public class ZRecruitController {
     @PostMapping("/recruitForm/message")
     @ResponseBody
     @Transactional
+
     public SimpleResponse recruitForm(FormEntity formEntity){
         System.out.println(formEntity);
 
@@ -179,6 +181,7 @@ public class ZRecruitController {
             return new SimpleResponse("保存预览图片成功",SimpleResponse.SUCCESS);
         } catch (IOException e) {
             log.info("保存列表预览图片失败");
+
             return new SimpleResponse("图片为空,将不在列表页面使用图片",SimpleResponse.SUCCESS);
         }
     }

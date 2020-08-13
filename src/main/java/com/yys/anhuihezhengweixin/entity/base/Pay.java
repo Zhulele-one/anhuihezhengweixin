@@ -16,11 +16,9 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 @ToString
-// 指定关联的数据库的表名
 @Table(name = "pay")
 public class Pay {
 
-    //strategy=GenerationType.IDENTITY 自增长
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;

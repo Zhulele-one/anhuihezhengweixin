@@ -25,6 +25,13 @@ public class ZIndexController {
     private List<OtherImg> businessImgList = new ArrayList<>();
     private OtherImg aboutImg = new OtherImg();
 
+    private static final Integer BANNER_SIZE = 3;
+    private static final Integer BUSINESS_IMG_SIZE = 4;
+    private static final Integer BANNER_PIC_MAX = 3;
+    private static final Integer ABOUT_PIC_NUM = 4;
+    private static final Integer BUSINESS_PIC_MIN = 5;
+    private static final Integer BUSINESS_PIC_MAX = 8;
+
 
     private final EditService editService;
 
@@ -50,38 +57,14 @@ public class ZIndexController {
     public ModelAndView indexSetting(){
         ModelAndView mv = new ModelAndView(ZINDEXSETTINGTEMPLATE);
 
-        if(bannerList.size() < 3 || businessImgList.size() < 4 || aboutImg.getPicId() == null){
+        if(bannerList.size() < BANNER_SIZE || businessImgList.size() < BUSINESS_IMG_SIZE || aboutImg.getPicId() == null){
             List<OtherImg> allOtherImg = editService.findAllOtherImg();
-            for (OtherImg o:allOtherImg){
-                if(bannerList.size() >= 3){
-                    break;
-                }
 
-                if(o.getPicId() <= 3){
-                    bannerList.add(o);
-                }
+            getBannerList(allOtherImg);
 
-            }
+            getAboutImg(allOtherImg);
 
-            for (OtherImg o : allOtherImg){
-                if(o.getPicId() == 4){
-                    aboutImg = o;
-                    break;
-                }
-            }
-
-            for (OtherImg o : allOtherImg){
-                if(businessImgList.size() >= 4){
-                    break;
-                }
-                if(o.getPicId() > 4 && o.getPicId() <= 8){
-                    businessImgList.add(o);
-                }
-
-            }
-            if(businessImgList.size() <4){
-                businessImgList = null;
-            }
+            getBusinessImgList(allOtherImg);
         }
 
         mv.addObject("bannerList",bannerList);
@@ -91,6 +74,7 @@ public class ZIndexController {
 
         List<Pay> pays = formService.getPays();
         mv.addObject("pays",pays);
+
         List<Record> records = formService.getRecords();
         mv.addObject("records",records);
 
@@ -98,13 +82,52 @@ public class ZIndexController {
         return mv;
     }
 
+    private void getBannerList(List<OtherImg> allOtherImg){
+        for (OtherImg o:allOtherImg){
+            if(bannerList.size() >= BANNER_SIZE){
+                break;
+            }
+
+            if(o.getPicId() <= BANNER_PIC_MAX){
+                bannerList.add(o);
+            }
+        }
+    }
+
+    private void getAboutImg(List<OtherImg> allOtherImg){
+        for (OtherImg o : allOtherImg){
+            if(o.getPicId().equals(ABOUT_PIC_NUM)){
+                aboutImg = o;
+                break;
+            }
+        }
+    }
+
+    private void getBusinessImgList(List<OtherImg> allOtherImg){
+        for (OtherImg o : allOtherImg){
+            if(businessImgList.size() >= BUSINESS_IMG_SIZE){
+                break;
+            }
+            if(o.getPicId() >= BUSINESS_PIC_MIN && o.getPicId() <= BUSINESS_PIC_MAX){
+                businessImgList.add(o);
+            }
+
+        }
+        if(businessImgList.size() < BUSINESS_IMG_SIZE){
+            businessImgList = null;
+        }
+    }
+
     @GetMapping("/addPay/{payZoom}")
     @ResponseBody
     public SimpleResponse addPay(@PathVariable String payZoom){
         Long payCount = formService.getPayCount();
+
         Pay pay = new Pay();
+
         pay.setPayId((int) (payCount + 1));
         pay.setPayZoom(payZoom);
+
         Pay pay1 = formService.savePay(pay);
         if(pay1 != null){
             return new SimpleResponse("保存成功",SimpleResponse.SUCCESS);
@@ -113,16 +136,16 @@ public class ZIndexController {
         }
     }
 
-    @GetMapping("/delPay/{id}")
+    @GetMapping("/delPay/{payId}")
     @ResponseBody
-    public SimpleResponse delPay(@PathVariable Long id){
+    public SimpleResponse delPay(@PathVariable Integer payId){
 
-        Pay payById = formService.findPayById(id);
-        if(payById == null){
+        Pay payByPayId = formService.findPayByPayId(payId);
+        if(payByPayId == null){
             return new SimpleResponse("你要删除的信息不存在",SimpleResponse.ERROR);
         }
 
-        formService.deletePay(payById);
+        formService.deletePay(payByPayId);
 
         return new SimpleResponse("删除成功",SimpleResponse.SUCCESS);
 
@@ -130,9 +153,9 @@ public class ZIndexController {
 
     @GetMapping("/editPay/{payId}/{payZoom}")
     @ResponseBody
-    public SimpleResponse editPay(@PathVariable("payId")Long payId,@PathVariable("payZoom") String payZoom){
+    public SimpleResponse editPay(@PathVariable("payId")Integer payId,@PathVariable("payZoom") String payZoom){
 
-        Pay payById = formService.findPayById(payId);
+        Pay payById = formService.findPayByPayId(payId);
         if(payById == null){
             return new SimpleResponse("修改失败,此信息不存在",SimpleResponse.ERROR);
         }
@@ -164,11 +187,11 @@ public class ZIndexController {
     }
 
 
-    @GetMapping("/delRecord/{id}")
+    @GetMapping("/delRecord/{recordId}")
     @ResponseBody
-    public SimpleResponse delRecord(@PathVariable Long id){
+    public SimpleResponse delRecord(@PathVariable Integer recordId){
 
-        Record recordById = formService.findRecordById(id);
+        Record recordById = formService.findRecordByRecordId(recordId);
 
         if(recordById == null){
             return new SimpleResponse("你要删除的信息不存在",SimpleResponse.ERROR);
@@ -182,9 +205,9 @@ public class ZIndexController {
 
     @GetMapping("/editRecord/{recordId}/{recordName}")
     @ResponseBody
-    public SimpleResponse editRecord(@PathVariable("recordId")Long recordId,@PathVariable("recordName") String recordName){
+    public SimpleResponse editRecord(@PathVariable("recordId")Integer recordId,@PathVariable("recordName") String recordName){
 
-        Record recordById = formService.findRecordById(recordId);
+        Record recordById = formService.findRecordByRecordId(recordId);
         if(recordById == null){
             return new SimpleResponse("修改失败,此信息不存在",SimpleResponse.ERROR);
         }

@@ -17,11 +17,11 @@ import java.util.Objects;
 @AllArgsConstructor
 @Entity
 @ToString
-@Table(name = "html") // 指定关联的数据库的表名
+@Table(name = "html")
 public class HTMLEntity {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)//strategy=GenerationType.IDENTITY 自增长
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
 

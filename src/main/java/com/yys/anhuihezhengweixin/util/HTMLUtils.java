@@ -37,6 +37,7 @@ public class HTMLUtils {
      * @param contentCode 模板数据标识
      * @param isCompleteUrl 是否拼装url
      * @return 返回 modelandview
+     * 带有分页功能
      */
     public static ModelAndView completeData(
             PageService pageService,
@@ -59,16 +60,10 @@ public class HTMLUtils {
             }
             textEntity.setContent(content.getContent());
 
-
-
             ///只封装需要的参数
-//            mv.addObject("pageable",content);
             MPage mPage = new MPage(content.getTotalElements(), content.getSize(), content.getTotalPages(), content.getNumber());
             mv.addObject("pageable",mPage);
-
         }
-
-
 
         htmlEntity.setTextEntity(textEntity);
         mv.addObject(HTML,htmlEntity);
@@ -77,6 +72,17 @@ public class HTMLUtils {
     }
 
 
+    /**
+     * @param pageService 传入service
+      * @param htmlEntity 页面实体
+      * @param textEntities 头部信息实体
+      * @param viewNamme 模板名称
+      * @param entityCode 头部数据标识
+      * @param contentCode 模板数据标识
+      * @param isCompleteUrl 是否拼装url
+      * @return 返回 modelandview
+      * 不带有分页功能
+     */
     public static ModelAndView completeData(
             PageService pageService,
             HTMLEntity htmlEntity,
@@ -111,6 +117,7 @@ public class HTMLUtils {
      * @param entityCode 头部数据
      * @param content 内容区域
      * @return 返回modelandview
+     * 此方法内容为除了列表拼接 内容不固定
      */
     public static ModelAndView completeStringData(HTMLEntity htmlEntity,List<TextEntity> textEntities,String viewName,Integer entityCode,Object content){
         ModelAndView mv = new ModelAndView(viewName);

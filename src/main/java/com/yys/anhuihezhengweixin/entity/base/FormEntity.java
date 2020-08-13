@@ -18,10 +18,10 @@ import java.util.Date;
 @AllArgsConstructor
 @Entity
 @ToString
-@Table(name = "form") // 指定关联的数据库的表名
+@Table(name = "form")
 public class FormEntity {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)//strategy=GenerationType.IDENTITY 自增长
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
 

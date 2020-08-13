@@ -18,10 +18,10 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @ToString
-@Table(name = "text") // 指定关联的数据库的表名
+@Table(name = "text")
 public class TextEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)//strategy=GenerationType.IDENTITY 自增长
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String title;

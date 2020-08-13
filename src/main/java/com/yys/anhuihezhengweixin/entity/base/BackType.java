@@ -16,11 +16,11 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 @ToString
-@Table(name = "backtype") // 指定关联的数据库的表名
+@Table(name = "backtype")
 public class BackType {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)//strategy=GenerationType.IDENTITY 自增长
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "backid")

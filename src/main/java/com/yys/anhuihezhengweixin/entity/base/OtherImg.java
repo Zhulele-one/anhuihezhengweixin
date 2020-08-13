@@ -7,16 +7,19 @@ import lombok.ToString;
 
 import javax.persistence.*;
 
+/**
+ * @author zq
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @ToString
-@Table(name = "otherimg") // 指定关联的数据库的表名
+@Table(name = "otherimg")
 public class OtherImg {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)//strategy=GenerationType.IDENTITY 自增长
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "picid")

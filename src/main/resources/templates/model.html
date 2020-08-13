@@ -106,11 +106,6 @@
 <script th:src="@{/hezheng/js/sweet.js}"></script>
 
 <script>
-    $(document).ready(function() {
-        // 选择框
-        $(".select2").select2();
-
-    });
 
     // 设置激活菜单
     function setSidebarActive(tagUri) {
@@ -122,20 +117,23 @@
     }
 
     $(document).ready(function() {
+        $(".select2").select2();
 
         var data = sessionStorage.getItem("activeSidebar");
         var sideUrl = sessionStorage.getItem("sideUrl");
+        if(sideUrl){
+            $('#iframe').attr('src',sideUrl)
+        } else {
+            sessionStorage.setItem("sideUrl","/zIndex");
+        }
+
         if (data) {
             setSidebarActive(data)
         } else {
             sessionStorage.setItem("activeSidebar","admin-index");
             setSidebarActive("admin-index")
         }
-        if(sideUrl){
-            $('#iframe').attr('src',sideUrl)
-        } else {
-            sessionStorage.setItem("sideUrl","/zIndex");
-        }
+
     });
 
     $('.treeview .treeview-menu a').click(function () {

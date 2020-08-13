@@ -74,9 +74,14 @@ public class ZRecruitController {
 
         TextEntity textEntity = getTextEntityEmpty(RECRUITTEXTENTITY,textEntities);
 
-        List<ImgText> imgTextList = pageService.getContent(RECRUITCONENT,page).getContent();
+        Page<ImgText> content = pageService.getContent(RECRUITCONENT, page);
+
+        List<ImgText> imgTextList = content.getContent();
+
 
         completeUrl(imgTextList);
+
+
 
 
         for (ImgText imgText : imgTextList) {
@@ -100,6 +105,11 @@ public class ZRecruitController {
         mv.addObject(HTML,htmlEntity);
 
         mv.addObject("recruitFormUrl",RECRUITFORM);
+
+        ///只封装需要的参数
+        MPage mPage = new MPage(content.getTotalElements(), content.getSize(), content.getTotalPages(), content.getNumber());
+        mv.addObject("pageable",mPage);
+
 
         return mv;
     }

@@ -131,7 +131,7 @@
                                 <td>[[${item.name}]]</td>
                                 <td>[[${item.abstractText}]]</td>
                                 <td th:if="${item.imgUrl != null and item.imgUrl != ''}">
-                                    <a class="imgShow" url="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()} + @{/getPicResource?path=}
+                                    <a style="cursor: pointer;" class="imgShow" url="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()} + @{/getPicResource?path=}
                                         + @{'} + ${item.imgUrl} + @{'}">点击查看标题图片</a>
                                     <img th:src="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()} + @{/getPicResource?path=}
                                         + @{'} + ${item.imgUrl} + @{'}" style="display: none;" >

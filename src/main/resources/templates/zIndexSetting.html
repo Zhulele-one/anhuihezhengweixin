@@ -164,115 +164,122 @@
 
                         <!--基本设置-->
                         <div class="tab-pane active" id="tab-form">
-                            <div class="row data-type">
-
-                                <div class="col-md-2 title">banner图1 [大小为1920*1020(1920*1080)]</div>
-                                <div class="col-md-10 " >
-                                    <div class="col-md-4">
+                            <div style="padding: 10px;" class="row data-type">
+                                <div style="margin-top: 20px;" class="col-md-3 title">banner图1 [大小为1920*1020(1920*1080)]</div>
+                                <div style="margin-top: 20px;" class="col-md-8 " >
+                                    <div class="col-md-6">
                                         <button id="indexPicPathBtn" class="btn  btn-lg btn-info">浏览图片</button>
-                                        <button id="indexUploadPic" class="btn  btn-lg btn-info">更改图片</button>
+                                        <button id="indexUploadPic" class="btn  btn-lg btn-pinterest">更改图片</button>
                                         <input name="indexPicPath" style="display:none" type="file" id="indexPicPath">
+                                        <a style="cursor: pointer;margin-left: 10px;" id="showImg1">预览图片</a>
+                                        <img th:src="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()} + @{/getIndexPicResource/}
+                                    +  ${bannerList.get(0).picId} " style="display: none;">
+                                        <p style="display: block;" id="indexPicPathName" class="text-left"></p>
                                     </div>
-                                    <a id="showImg1">预览图片</a>
-                                    <img th:src="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()} + @{/getIndexPicResource/}
-                                        +  ${bannerList.get(0).picId} " style="display: none;">
-                                    <p id="indexPicPathName" class="text-left"></p>
+
                                 </div>
 
-                                <div class="col-md-2 title">banner图2 [大小为1920*1020(1920*1080)]</div>
-                                <div class="col-md-10">
-                                    <div class="col-md-4">
+                                <div class="col-md-3 title">banner图2 [大小为1920*1020(1920*1080)]</div>
+                                <div class="col-md-9">
+                                    <div class="col-md-6">
                                         <button id="indexPicPathBtn2" class="btn btn-lg  btn-info">浏览图片</button>
-                                        <button id="indexUploadPic2" class="btn btn-lg  btn-info">更改图片</button>
+                                        <button id="indexUploadPic2" class="btn btn-lg  btn-pinterest">更改图片</button>
                                         <input name="indexPicPath" style="display:none" type="file" id="indexPicPath2">
-                                    </div>
-                                    <a id="showImg2">预览图片</a>
-                                    <img th:src="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()} + @{/getIndexPicResource/}
+                                        <a style="cursor: pointer;margin-left: 10px;" id="showImg2">预览图片</a>
+                                        <img th:src="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()} + @{/getIndexPicResource/}
                                         +  ${bannerList.get(1).picId} " style="display: none;">
-                                    <p id="indexPicPathName2" class="text-left"></p>
+                                        <p id="indexPicPathName2" class="text-left"></p>
+                                    </div>
+
                                 </div>
 
-                                <div class="col-md-2 title">banner图3 [大小为1920*1020(1920*1080)]</div>
-                                <div class="col-md-10">
-                                    <div class="col-md-4">
+                                <div class="col-md-3 title">banner图3 [大小为1920*1020(1920*1080)]</div>
+                                <div class="col-md-9">
+                                    <div class="col-md-6">
                                         <button id="indexPicPathBtn3" class="btn  btn-lg btn-info">浏览图片</button>
-                                        <button id="indexUploadPic3" class="btn  btn-lg btn-info">更改图片</button>
+                                        <button id="indexUploadPic3" class="btn  btn-lg btn-pinterest">更改图片</button>
                                         <input name="indexPicPath" style="display:none" type="file" id="indexPicPath3">
-                                    </div>
-                                        <a id="showImg3">预览图片</a>
+                                        <a style="cursor: pointer;margin-left: 10px;" id="showImg3">预览图片</a>
                                         <img th:src="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()} + @{/getIndexPicResource/}
                                             +  ${bannerList.get(2).picId} " style="display: none;">
                                         <p id="indexPicPathName3" class="text-left"></p>
+                                    </div>
+
                                 </div>
 
 
-                                <div class="col-md-2 title">简介图片 [大小为 456*300]</div>
-                                <div class="col-md-10">
-                                    <div class="col-md-4">
+                                <div class="col-md-3 title">简介图片 [大小为 456*300]</div>
+                                <div class="col-md-9">
+                                    <div class="col-md-6">
                                         <button id="indexPicPathBtn4" class="btn  btn-lg btn-info">浏览图片</button>
-                                        <button id="indexUploadPic4" class="btn  btn-lg btn-info">更改图片</button>
+                                        <button id="indexUploadPic4" class="btn  btn-lg btn-pinterest">更改图片</button>
                                         <input name="indexPicPath" style="display:none" type="file" id="indexPicPath4">
-                                    </div>
-                                    <a id="showImg4">预览图片</a>
-                                    <img th:src="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()} + @{/getIndexPicResource/}
+                                        <a  style="cursor: pointer;margin-left: 10px;"  id="showImg4">预览图片</a>
+                                        <img th:src="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()} + @{/getIndexPicResource/}
                                             +  ${aboutImg.picId} " style="display: none;">
-                                    <p id="indexPicPathName4" class="text-left"></p>
+                                        <p id="indexPicPathName4" class="text-left"></p>
+                                    </div>
+
                                 </div>
 
-                                <div class="col-md-2 title">工程造价 [大小为 1920*1080]</div>
-                                <div class="col-md-10">
-                                    <div class="col-md-4">
+                                <div class="col-md-3 title">工程造价 [大小为 1920*1080]</div>
+                                <div class="col-md-9">
+                                    <div class="col-md-6">
                                         <button id="indexPicPathBtn5" class="btn btn-lg btn-info">浏览图片</button>
-                                        <button id="indexUploadPic5" class="btn btn-lg btn-info">更改图片</button>
+                                        <button id="indexUploadPic5" class="btn btn-lg btn-pinterest">更改图片</button>
                                         <input name="indexPicPath5" style="display:none" type="file" id="indexPicPath5">
-                                    </div>
-                                    <a id="showImg5">预览图片</a>
-                                    <img class="img-responsive img-rounded" th:if="${businessImgList.get(0).url != null and businessImgList.get(0).url != ''}"
-                                         th:src="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()} + @{/getIndexPicResource/}
+                                        <a style="cursor: pointer;margin-left: 10px;"  id="showImg5">预览图片</a>
+                                        <img class="img-responsive img-rounded" th:if="${businessImgList.get(0).url != null and businessImgList.get(0).url != ''}"
+                                             th:src="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()} + @{/getIndexPicResource/}
                                          + ${businessImgList.get(0).picId}" style="display: none;">
-                                    <p id="indexPicPathName5" class="text-left"></p>
+                                        <p id="indexPicPathName5" class="text-left"></p>
+                                    </div>
+
                                 </div>
 
 
-                                <div class="col-md-2 title"> 招标代理 [大小为 1920*1080]</div>
-                                <div class="col-md-10">
-                                    <div class="col-md-4">
+                                <div class="col-md-3 title"> 招标代理 [大小为 1920*1080]</div>
+                                <div class="col-md-9">
+                                    <div class="col-md-6">
                                         <button id="indexPicPathBtn6" class="btn btn-lg btn-info">浏览图片</button>
-                                        <button id="indexUploadPic6" class="btn btn-lg btn-info">更改图片</button>
+                                        <button id="indexUploadPic6" class="btn btn-lg btn-pinterest">更改图片</button>
                                         <input name="indexPicPath" style="display:none" type="file" id="indexPicPath6">
-                                    </div>
-                                    <a id="showImg6">预览图片</a>
-                                    <img class="img-responsive img-rounded" th:if="${businessImgList.get(1).url != null and businessImgList.get(1).url != ''}" th:src="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()} + @{/getIndexPicResource/}
+                                        <a style="cursor: pointer;margin-left: 10px;"  id="showImg6">预览图片</a>
+                                        <img class="img-responsive img-rounded" th:if="${businessImgList.get(1).url != null and businessImgList.get(1).url != ''}" th:src="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()} + @{/getIndexPicResource/}
                                          + ${businessImgList.get(1).picId} " style="display: none;">
-                                    <p id="indexPicPathName6" class="text-left"></p>
+                                        <p id="indexPicPathName6" class="text-left"></p>
+                                    </div>
+
                                 </div>
 
 
-                                <div class="col-md-2 title">工程造价 [大小为 1920*1080]</div>
-                                <div class="col-md-10">
-                                    <div class="col-md-4">
+                                <div class="col-md-3 title">工程造价 [大小为 1920*1080]</div>
+                                <div class="col-md-9">
+                                    <div class="col-md-6">
                                         <button id="indexPicPathBtn7" class="btn btn-lg btn-info">浏览图片</button>
-                                        <button id="indexUploadPic7" class="btn btn-lg btn-info">更改图片</button>
+                                        <button id="indexUploadPic7" class="btn btn-lg btn-pinterest">更改图片</button>
                                         <input name="indexPicPath" style="display:none" type="file" id="indexPicPath7">
-                                    </div>
-                                    <a id="showImg7">预览图片</a>
-                                    <img class="img-responsive img-rounded" th:if="${businessImgList.get(2).url != null and businessImgList.get(2).url != ''}" th:src="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()} + @{/getIndexPicResource/}
+                                        <a style="cursor: pointer;margin-left: 10px;"  id="showImg7">预览图片</a>
+                                        <img class="img-responsive img-rounded" th:if="${businessImgList.get(2).url != null and businessImgList.get(2).url != ''}" th:src="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()} + @{/getIndexPicResource/}
                                          + ${businessImgList.get(2).picId}" style="display: none;">
-                                    <p id="indexPicPathName7" class="text-left"></p>
+                                        <p id="indexPicPathName7" class="text-left"></p>
+                                    </div>
+
                                 </div>
 
 
-                                <div class="col-md-2 title">工程造价 [大小为 1920*1080]</div>
-                                <div class="col-md-10">
-                                    <div class="col-md-4">
+                                <div class="col-md-3 title">工程造价 [大小为 1920*1080]</div>
+                                <div class="col-md-9">
+                                    <div class="col-md-6">
                                         <button id="indexPicPathBtn8" class="btn btn-lg btn-info">浏览图片</button>
-                                        <button id="indexUploadPic8" class="btn btn-lg btn-info">更改图片</button>
+                                        <button id="indexUploadPic8" class="btn btn-lg btn-pinterest">更改图片</button>
                                         <input name="indexPicPath" style="display:none" type="file" id="indexPicPath8">
-                                    </div>
-                                    <a id="showImg8">预览图片</a>
-                                    <img class="img-responsive img-rounded" th:if="${businessImgList.get(3).url != null and businessImgList.get(3).url != ''}" th:src="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()} + @{/getIndexPicResource/}
+                                        <a style="cursor: pointer;margin-left: 10px;"  id="showImg8">预览图片</a>
+                                        <img class="img-responsive img-rounded" th:if="${businessImgList.get(3).url != null and businessImgList.get(3).url != ''}" th:src="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()} + @{/getIndexPicResource/}
                                          + ${businessImgList.get(3).picId}" style="display: none;">
-                                    <p id="indexPicPathName8" class="text-left"></p>
+                                        <p id="indexPicPathName8" class="text-left"></p>
+                                    </div>
+
                                 </div>
 
                             </div>
@@ -303,8 +310,8 @@
                         <div class="tab-pane active" >
 
                             <div class="row data-type">
-                                <div th:if="${pays != null}" class="form-group col-md-12" style="margin: 20px;padding: 10px;">
-                                    <div class="col-md-2 " ><label style="margin-left:40%;">期望薪资</label></div>
+                                <div th:if="${pays != null}" class="form-group col-md-12" style="margin-top: 20px">
+                                    <div class="col-md-1 title" ><label>期望薪资</label></div>
                                     <div class="col-md-4">
                                         <select id="pay" class="form-control">
                                             <option  th:each="item:${pays}" th:value="${item.payId}">[[${item.payZoom}]]</option>
@@ -318,8 +325,8 @@
                                     <div class="col-md-3"></div>
                                 </div>
 
-                                <div th:if="${records != null}" class="form-group col-md-12" style="margin: 20px;padding: 10px;">
-                                    <div class="col-md-2"><label style="margin-left:40%;">学历</label></div>
+                                <div th:if="${records != null}" class="form-group col-md-12" >
+                                    <div class="col-md-1 title"><label>学历</label></div>
                                     <div class="col-md-4">
                                         <select id="record" class="form-control">
                                             <option th:each="item:${records}" th:value="${item.recordId}">[[${item.recordName}]]</option>
@@ -755,6 +762,16 @@
             let formData = new FormData();
             formData.append("file",$('#indexPicPath')[0].files[0]);
 
+
+            if(typeof($('#indexPicPath')[0].files[0]) == 'undefined'){
+                swal({
+                    text: "请先指定图片再保存",
+                    icon: "info",
+                    buttons: "确定"
+                })
+                return false;
+            }
+
             swal({
                 text: "你确定要更改此banner1图吗",
                 icon: "info",
@@ -832,6 +849,15 @@
         $('#indexUploadPic2').click(function () {
             let formData = new FormData();
             formData.append("file",$('#indexPicPath2')[0].files[0]);
+
+            if(typeof($('#indexPicPath2')[0].files[0]) == 'undefined'){
+                swal({
+                    text: "请先指定图片再保存",
+                    icon: "info",
+                    buttons: "确定"
+                })
+                return false;
+            }
 
             swal({
                 text: "你确定要更改此banner2图吗",
@@ -911,6 +937,15 @@
             let formData = new FormData();
             formData.append("file",$('#indexPicPath3')[0].files[0]);
 
+            if(typeof($('#indexPicPath3')[0].files[0]) == 'undefined'){
+                swal({
+                    text: "请先指定图片再保存",
+                    icon: "info",
+                    buttons: "确定"
+                })
+                return false;
+            }
+
             swal({
                 text: "你确定要更改此banner3图吗",
                 icon: "info",
@@ -987,6 +1022,15 @@
         $('#indexUploadPic4').click(function () {
             let formData = new FormData();
             formData.append("file",$('#indexPicPath4')[0].files[0]);
+
+            if(typeof($('#indexPicPath4')[0].files[0]) == 'undefined'){
+                swal({
+                    text: "请先指定图片再保存",
+                    icon: "info",
+                    buttons: "确定"
+                })
+                return false;
+            }
 
             swal({
                 text: "你确定要更改此简介图吗",
@@ -1065,6 +1109,15 @@
             let formData = new FormData();
             formData.append("file",$('#indexPicPath5')[0].files[0]);
 
+            if(typeof($('#indexPicPath5')[0].files[0]) == 'undefined'){
+                swal({
+                    text: "请先指定图片再保存",
+                    icon: "info",
+                    buttons: "确定"
+                })
+                return false;
+            }
+
             swal({
                 text: "你确定要更改此简介图吗",
                 icon: "info",
@@ -1141,6 +1194,15 @@
         $('#indexUploadPic6').click(function () {
             let formData = new FormData();
             formData.append("file",$('#indexPicPath6')[0].files[0]);
+
+            if(typeof($('#indexPicPath6')[0].files[0]) == 'undefined'){
+                swal({
+                    text: "请先指定图片再保存",
+                    icon: "info",
+                    buttons: "确定"
+                })
+                return false;
+            }
 
             swal({
                 text: "你确定要更改此简介图吗",
@@ -1219,6 +1281,15 @@
             let formData = new FormData();
             formData.append("file",$('#indexPicPath7')[0].files[0]);
 
+            if(typeof($('#indexPicPath7')[0].files[0]) == 'undefined'){
+                swal({
+                    text: "请先指定图片再保存",
+                    icon: "info",
+                    buttons: "确定"
+                })
+                return false;
+            }
+
             swal({
                 text: "你确定要此更改简介图吗",
                 icon: "info",
@@ -1295,6 +1366,15 @@
         $('#indexUploadPic8').click(function () {
             let formData = new FormData();
             formData.append("file",$('#indexPicPath8')[0].files[0]);
+
+            if(typeof($('#indexPicPath8')[0].files[0]) == 'undefined'){
+                swal({
+                    text: "请先指定图片再保存",
+                    icon: "info",
+                    buttons: "确定"
+                })
+                return false;
+            }
 
             swal({
                 text: "你确定要更改此简介图吗",

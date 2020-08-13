@@ -426,7 +426,18 @@
                 }
                 //第一个参数对应后台传参的名字
                 formData.append("imgFile",$('#imgFile')[0].files[0]);
+
             }
+
+
+            let sendImg = 1;
+            if(typeof($('#imgFile')[0].files[0]) == 'undefined'){
+                sendImg = 0;
+            }
+            console.log($('#imgFile')[0].files[0])
+
+            console.log(sendImg)
+
 
 
             swal({
@@ -447,75 +458,86 @@
                         },success:function(data){
                             if(data.code){
                                 $.ajax({
-                                    type:"POST",
-                                    url:"[[@{/preview/savePage}]]",
-                                    dataType:"json",
-                                    data:{
-                                        id: textId,
-                                        title: parentTitle,
-                                        textEntityId : textEntityId,
-                                        parentId : parentId,
-                                        parentTitle : textTitle,
-                                        parentAbstract : textAbstract,
-                                        imgUrl:imgUrl
-                                    },success:function(data){
-                                        if(data.code){
-                                            $.ajax({
-                                                type:"POST",
-                                                url:"[[@{/preview/receiveItemImg}]]",
-                                                dataType: "json",
-                                                contentType: false,
-                                                processData: false,
-                                                async: false,
-                                                data:formData,
-                                                success:function(data){
-                                                    if(data.code){
-                                                        swal({
-                                                            title: "保存成功",
-                                                            text: data.msg,
-                                                            icon: "success",
-                                                            button: "确定",
-                                                        }).then((e)=>{
-                                                            window.location.href = sessionStorage.getItem("sideUrl");
-                                                        });
-                                                    }else{
-                                                        swal({
-                                                            title: "提交失败",
-                                                            text: data.msg,
-                                                            icon: "success",
-                                                            button: "确定",
-                                                        });
-                                                    }
-                                                },
-                                                error:function(jqXHR){
+                                        type:"POST",
+                                        url:"[[@{/preview/savePage}]]",
+                                        dataType:"json",
+                                        data:{
+                                            id: textId,
+                                            title: parentTitle,
+                                            textEntityId : textEntityId,
+                                            parentId : parentId,
+                                            parentTitle : textTitle,
+                                            parentAbstract : textAbstract,
+                                            imgUrl:imgUrl
+                                        },success:function(data){
+                                            if(data.code){
+                                                if(sendImg === 1){
+                                                    $.ajax({
+                                                        type:"POST",
+                                                        url:"[[@{/preview/receiveItemImg}]]",
+                                                        dataType: "json",
+                                                        contentType: false,
+                                                        processData: false,
+                                                        async: false,
+                                                        data:formData,
+                                                        success:function(data){
+                                                            if(data.code){
+                                                                swal({
+                                                                    title: "保存成功",
+                                                                    text: data.msg,
+                                                                    icon: "success",
+                                                                    button: "确定",
+                                                                }).then((e)=>{
+                                                                    window.location.href = sessionStorage.getItem("sideUrl");
+                                                                });
+                                                            }else{
+                                                                swal({
+                                                                    title: "提交失败",
+                                                                    text: data.msg,
+                                                                    icon: "success",
+                                                                    button: "确定",
+                                                                });
+                                                            }
+                                                        },
+                                                        error:function(jqXHR){
+                                                            swal({
+                                                                title: "提交",
+                                                                text: "图片为空,将使用无图列表存储",
+                                                                icon: "info",
+                                                                button: "确定",
+                                                            }).then((e)=>{
+                                                                window.location.href = sessionStorage.getItem("sideUrl");
+                                                            });
+                                                        }
+                                                    });
+                                                } else {
                                                     swal({
-                                                        title: "提交",
-                                                        text: "图片为空,将使用无图列表存储",
-                                                        icon: "info",
+                                                        title: "保存成功",
+                                                        text: data.msg,
+                                                        icon: "success",
                                                         button: "确定",
                                                     }).then((e)=>{
                                                         window.location.href = sessionStorage.getItem("sideUrl");
                                                     });
                                                 }
-                                            });
-                                        }else{
+                                            }else{
+                                                swal({
+                                                    title: "保存失败",
+                                                    text: data.msg,
+                                                    icon: "success",
+                                                    button: "确定",
+                                                });
+                                            }
+                                        },
+                                        error:function(jqXHR){
                                             swal({
-                                                title: "保存失败",
-                                                text: data.msg,
-                                                icon: "success",
+                                                title: "生成",
+                                                text: "出错了!输入可能存在问题",
+                                                icon: "error",
                                                 button: "确定",
                                             });
                                         }
-                                    },
-                                    error:function(jqXHR){
-                                        swal({
-                                            title: "生成",
-                                            text: "出错了!输入可能存在问题",
-                                            icon: "error",
-                                            button: "确定",
-                                        });
-                                    }
-                                });
+                                    });
                             }else{
                                 swal({
                                     title: "生成页面失败",

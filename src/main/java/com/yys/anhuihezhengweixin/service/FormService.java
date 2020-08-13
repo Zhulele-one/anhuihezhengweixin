@@ -141,14 +141,6 @@ public class FormService {
         return recordDao.save(record);
     }
 
-    public Pay findPayById(Long payId) {
-        return payDao.findById(payId).orElse(null);
-    }
-
-    public Record findRecordById(Long recordId) {
-        return recordDao.findById(recordId).orElse(null);
-    }
-
     public void deletePay(Pay payById) {
         payDao.delete(payById);
     }

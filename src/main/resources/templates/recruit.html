@@ -73,7 +73,8 @@
                                     </div>
                                     <hr>
                                     <div class="text-right">
-                                        <a th:href="${recruitFormUrl}+@{/}+${item.textId}"><button class="btn-danger btn btn-lg">申请职位</button></a>
+                                        <!--http://localhost:8080/houtai/recruit/recruitForm/330-->
+                                        <a th:href="@{/recruit/recruitForm/}+${item.textId}"><button class="btn-danger btn btn-lg">申请职位</button></a>
                                     </div>
                                 </div><!-- end row -->
                             </div>
@@ -115,7 +116,8 @@
                                 </div>
                                 <hr>
                                 <div class="text-right">
-                                    <a th:href="${recruitFormUrl}+@{/}+${item.textId}"><button class="btn-danger btn btn-lg">申请职位</button></a>
+                                    <!--http://localhost:8080/houtai/recruit/recruitForm/330-->
+                                    <a th:href="@{/recruit/recruitFormUrl/}+${item.textId}"><button class="btn-danger btn btn-lg">申请职位</button></a>
                                     <!--<a th:href="${item.url}"><button class="btn-danger btn btn-lg">申请职位</button></a>-->
                                 </div>
                             </div><!-- end row -->
@@ -166,7 +168,6 @@
     });
 
 
-
     $(function () {
         $('.pager a').click(function () {
             console.log($(this).attr('disabled'))
@@ -191,6 +192,7 @@
     }
 
 
+    let startUrl =  "[[${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()}]]"
 
 
     $(function() {
@@ -216,9 +218,10 @@
             let msgUrl = msgDiv.attr('recruit_msg');
             console.log('msgurl' + msgUrl)
             console.log(msgDiv)
+            let url = startUrl + msgUrl
             $.ajax({
                 type:"GET",
-                url:msgUrl,
+                url:url,
                 dataType:"json",
                 success:function(data){
                     msgDiv.html(data.msg)

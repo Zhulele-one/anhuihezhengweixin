@@ -28,13 +28,13 @@
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="/webapp/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                            <img th:src="@{/webapp/img/user2-160x160.jpg}" class="user-image" alt="User Image">
                             <span class="hidden-xs">admin</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="/webapp/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                <img th:src="@{/webapp/img/user2-160x160.jpg}" class="img-circle" alt="User Image">
                                 <p>
                                     admin - 数据管理员
                                     <small>欢迎登陆 安徽和正后台系统</small>
@@ -44,7 +44,7 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="row" style="margin-left: 10px;margin-right: 10px;">
-                                    <a href="/logout" class="btn btn-default btn-block">注销</a>
+                                    <a th:href="@{/logout}" class="btn btn-default btn-block">注销</a>
                                 </div>
                             </li>
                         </ul>
@@ -73,33 +73,33 @@
         <nav class="megamenu navbar navbar-default">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand" th:href="@{/index}">
-                        <img width="325px" th:src="#{hezheng.logo}"></a>
+                    <a class="navbar-brand" href="javascript:;">
+                        <img width="325px" th:src="@{/hezheng/images/logos/logo.png}"></a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
 
                     <ul class="nav navbar-nav navbar-right">
 
-                        <li><a th:if="${HTML.titleSign == 1}" th:href="@{/index}" class="active">网站首页</a></li>
-                        <li><a th:unless="${HTML.titleSign == 1}" th:href="@{/index}">网站首页</a></li>
+                        <li><a th:if="${HTML.titleSign == 1}" href="javascript:;" class="active">网站首页</a></li>
+                        <li><a th:unless="${HTML.titleSign == 1}" href="javascript:;">网站首页</a></li>
 
-                        <li><a th:if="${HTML.titleSign == 2}" th:href="@{/about/birefing}" class="active">关于和正</a></li>
-                        <li><a th:unless="${HTML.titleSign == 2}" th:href="@{/about/birefing}">关于和正</a></li>
+                        <li><a th:if="${HTML.titleSign == 2}" href="javascript:;" class="active">关于和正</a></li>
+                        <li><a th:unless="${HTML.titleSign == 2}" href="javascript:;">关于和正</a></li>
 
-                        <li><a th:if="${HTML.titleSign == 3}" th:href="@{/news/companyNews/1}" class="active">实时资讯</a></li>
-                        <li><a th:unless="${HTML.titleSign == 3}" th:href="@{/news/companyNews/1}">实时资讯</a></li>
+                        <li><a th:if="${HTML.titleSign == 3}" href="javascript:;" class="active">实时资讯</a></li>
+                        <li><a th:unless="${HTML.titleSign == 3}" href="javascript:;">实时资讯</a></li>
 
-                        <li><a th:if="${HTML.titleSign == 4}" th:href="@{/business/proxy/1}" class="active">业务范围</a></li>
-                        <li><a th:unless="${HTML.titleSign == 4}" th:href="@{/business/proxy/1}">业务范围</a></li>
+                        <li><a th:if="${HTML.titleSign == 4}" href="javascript:;" class="active">业务范围</a></li>
+                        <li><a th:unless="${HTML.titleSign == 4}" href="javascript:;">业务范围</a></li>
 
-                        <li><a th:if="${HTML.titleSign == 5}" th:href="@{/culture/1}" class="active">文化党建</a></li>
-                        <li><a th:unless="${HTML.titleSign == 5}" th:href="@{/culture/1}">文化党建</a></li>
+                        <li><a th:if="${HTML.titleSign == 5}" href="javascript:;" class="active">文化党建</a></li>
+                        <li><a th:unless="${HTML.titleSign == 5}" href="javascript:;">文化党建</a></li>
 
-                        <li><a th:if="${HTML.titleSign == 6}" th:href="@{/recruit/1}" class="active">招贤纳士</a></li>
-                        <li><a th:unless="${HTML.titleSign == 6}" th:href="@{/recruit/1}">招贤纳士</a></li>
+                        <li><a th:if="${HTML.titleSign == 6}" href="javascript:;" class="active">招贤纳士</a></li>
+                        <li><a th:unless="${HTML.titleSign == 6}" href="javascript:;">招贤纳士</a></li>
 
-                        <li><a th:if="${HTML.titleSign == 7}" th:href="@{/aboutme/callme}" class="active">联系我们</a></li>
-                        <li><a th:unless="${HTML.titleSign == 7}" th:href="@{/aboutme/callme}">联系我们</a></li>
+                        <li><a th:if="${HTML.titleSign == 7}" href="javascript:;" class="active">联系我们</a></li>
+                        <li><a th:unless="${HTML.titleSign == 7}" href="javascript:;">联系我们</a></li>
                     </ul>
                 </div>
             </div>

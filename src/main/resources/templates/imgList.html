@@ -65,11 +65,11 @@
                                 <a th:href="${item.url}" th:if="${item.url}"><small th:text="${item.name}">工程师资质证书</small></a>
                                 <div class="post-media entry wow fadeIn">
                                     <!--<a th:unless="${item.url}" th:href="${item.imgUrl}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>-->
-                                    <a th:unless="${item.url}" th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()} + @{/getPicResource?path=}
+                                    <a th:unless="${item.url}" th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort() } + @{/getPicResource?path=}
                                         + @{'} + ${item.imgUrl} + @{'}" data-rel="prettyPhoto[gal]" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
                                     <a th:if="${item.url}" th:href="${item.url}" class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
                                     <!--<img th:src="${item.imgUrl}" alt="" class="img-fluid img-rounded">-->
-                                    <img width="100%" th:src="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()} + @{/getPicResource?path=}
+                                    <img width="100%" th:src="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort()} + @{/getPicResource?path=}
                                         + @{'} + ${item.imgUrl} + @{'}" alt="">
                                     <div class="magnifier"></div>
                                 </div>

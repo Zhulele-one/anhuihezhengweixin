@@ -23,8 +23,8 @@ import static com.yys.anhuihezhengweixin.util.HtmlTag.*;
  * @author zq
  */
 @Controller
-@RequestMapping("/__news__")
-public class NewsController {
+@RequestMapping("/__rule__")
+public class RuleController {
 
 
     private HTMLEntity htmlEntity;
@@ -37,7 +37,7 @@ public class NewsController {
     private final TextService textService;
 
     @Autowired
-    public NewsController(PageService pageService, TextService textService) {
+    public RuleController(PageService pageService, TextService textService) {
         this.pageService = pageService;
         this.textService = textService;
     }
@@ -57,51 +57,17 @@ public class NewsController {
     }
 
 
-    @GetMapping("/learning/{page}")
-    public ModelAndView aboutLearning(@PathVariable Integer page){
-        return completeData(pageService,htmlEntity,textEntities,ITEMLISTTEMPLATE,
-                LEARNINGTEXTENTITY,LEARNINGCONTENT,page,true);
-    }
-    @GetMapping("/learning/ajax/{page}")
-    @ResponseBody
-    public ImgTextResponse newsMessageAjaxLearning(@PathVariable Integer page){
-        return completeAjaxData(pageService,page,LEARNINGCONTENT);
-    }
-
-
-    @GetMapping("/companyNews/{page}")
-    public ModelAndView newsCompanyNews(@PathVariable Integer page){
-        return completeData(pageService,htmlEntity,textEntities,ITEMLISTTEMPLATE,
-                COMPANYNEWSTEXTENTITY,COMPANYNEWSCONETNT,page,true);
-    }
-    @GetMapping("/companyNews/ajax/{page}")
-    @ResponseBody
-    public ImgTextResponse newsMessageAjaxCompanyNews(@PathVariable Integer page){
-        return completeAjaxData(pageService,page,COMPANYNEWSCONETNT);
-    }
-
-    @GetMapping("/hangyeNews/{page}")
-    public ModelAndView newsHangyeNews(@PathVariable Integer page){
-        return completeData(pageService,htmlEntity,textEntities,ITEMLISTTEMPLATE,
-                HANGYENEWSTEXTENTITY,HANGYENEWSCONETNT,page,true);
-    }
-    @GetMapping("/hangyeNews/ajax/{page}")
-    @ResponseBody
-    public ImgTextResponse newsMessageAjaxHangYeNews(@PathVariable Integer page){
-        return completeAjaxData(pageService,page,HANGYENEWSCONETNT);
-    }
-
-    @GetMapping("/rule")
+    @GetMapping("/")
     public ModelAndView aboutRule(){
         return completeData(pageService,htmlEntity,textEntities,IMGLISTTEMPLATE,RULETEXTENTITY,RULELISTCONTENT,false);
     }
 
 
-    @GetMapping("/rule/{itemId}/{page}")
+    @GetMapping("/{itemId}/{page}")
     public ModelAndView aboutRuleList(@PathVariable("itemId") int itemId,@PathVariable("page") Integer page){
         return completeData(pageService,htmlEntity,textEntities,ITEMLISTTEMPLATE,RULETEXTENTITY,itemId,page,true);
     }
-    @GetMapping("/rule/{itemId}/ajax/{page}")
+    @GetMapping("/{itemId}/ajax/{page}")
     @ResponseBody
     public ImgTextResponse newsMessageAjaxRule(@PathVariable("itemId") int itemId,@PathVariable Integer page){
         return completeAjaxData(pageService,page,itemId);

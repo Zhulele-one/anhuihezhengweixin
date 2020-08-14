@@ -199,7 +199,7 @@
                                 <td  class="itemId">[[${item.abstractText}]]</td>
 
                                 <td class="text-center">
-                                    <a class="btn bg-olive btn-xs" th:href="@{/preview/editPage/}+${item.textId}+@{/1}">编辑</a>
+                                    <a class="btn bg-olive btn-xs" th:href="@{/preview/editPage/}+${item.textId + '/1'}">编辑</a>
                                     <button class="delBtn btn bg-olive btn-xs" th:attr="del_uri=@{/preview/deleteRecruit/}+${item.id}">删除</button>
 
                                 </td>
@@ -298,16 +298,16 @@
     let ajaxSetData= false;
 
 
+    let startUrl =  "[[${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()}]]"
     function seeHTML() {
         let oldUrl = window.location.pathname
-        let point = oldUrl.indexOf("/")
-        let endPoint = oldUrl.indexOf("/",point+1)
-        let newUrl = oldUrl.substr(endPoint,oldUrl.length)
-        let newUrlb = oldUrl.substr(point+1,endPoint-1)
+        let point = oldUrl.lastIndexOf("/")
+        let endPoint = oldUrl.substr(0,point).lastIndexOf("/")
+        let startPoint = oldUrl.substr(0,point).lastIndexOf("/")
+        let newUrlb = oldUrl.substr(startPoint+1,endPoint)
+        let endUrl = oldUrl.substr(point)
 
-        let host = window.location.host
-
-        let compUrl = "http://" + host + "/__" + newUrlb + "__" + newUrl
+        let compUrl = startUrl +  "/__" + newUrlb + "__" + endUrl
 
 
         window.open(compUrl)
@@ -335,7 +335,7 @@
                 for (let i = 0; i < checkedData.length;i++){
 
                     let itemId = $(checkedData[i]).attr('itemId');
-                    let url = "/preview/deleteRecruit/" + itemId;
+                    let url = startUrl +  "/preview/deleteRecruit/" + itemId;
                     delData(url)
                 }
             }

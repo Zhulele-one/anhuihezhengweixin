@@ -58,7 +58,7 @@
                         <table class="table table-hover table-style" style="border-collapse:inherit">
                             <tr th:each="item:${HTML.textEntity.content}" class="fa-border">
                                 <td style="padding:15px;border:1">
-                                    <a th:href="${item.url}">
+                                    <a thref="javascript:;">
                                         [[${item.name}]]
                                     </a>
                                     <!--<a class="btn btn-sm btn-primary" th:href="@{/preview/editPage/}+${item.textId}+@{/1}">编辑</a>-->
@@ -92,9 +92,9 @@
                     <div id="test">
                         <div th:each="item:${HTML.textEntity.content}" >
                             <div class="row "   >
-                                <a th:href="${item.url}">
+                                <a href="javascript:;">
                                     <div th:unless="${#strings.isEmpty(item.imgUrl)}" class="col-sm-5 col-xs-5">
-                                        <img width="100%" th:src="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()} + @{/getPicResource?path=}
+                                        <img width="100%" th:src="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort() } + @{/getPicResource?path=}
                                         + @{'} + ${item.imgUrl} + @{'}" alt="">
 
                                     </div>

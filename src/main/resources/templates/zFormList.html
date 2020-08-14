@@ -247,7 +247,7 @@
                                     <button class="showModal btn btn-primary">工作经历</button>
                                     <span class="historyMsg2" style="display: none;" th:utext="${item.introduction}"></span>
                                     <span class="historyMsg" style="display: none;" th:utext="${item.history}"></span>
-                                    <a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()} + @{/getDocResource?path=}
+                                    <a th:href="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort()} + @{/getDocResource?path=}
                                         + @{'} + ${item.filePath} + @{'}" class="btn btn-primary">简历</a>
                                 </td>
 
@@ -364,7 +364,7 @@
     });
 
 
-
+    let startUrl =  "[[${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()}]]"
     function delMultiData(){
         let checkedData = $('#dataList').find('div[aria-checked=true]').parent()
         if(checkedData.length === 0){
@@ -377,7 +377,7 @@
         console.log(checkedData.length)
         console.log(checkedData)
         swal({
-            title:"你确定要删除吗,删除后其对应的文章也会删除",
+            title:"你确定要删除吗",
             icon: "info",
             buttons: ["取消","确定"],
             dangerMode: true,
@@ -386,7 +386,7 @@
                 for (let i = 0; i < checkedData.length;i++){
 
                     let itemId = $(checkedData[i]).attr('itemId');
-                    let url = "/recruit/deletePerson/" + itemId;
+                    let url = startUrl + "/recruit/deletePerson/" + itemId;
                     $.ajax({
                         type:"GET",
                         url:url,

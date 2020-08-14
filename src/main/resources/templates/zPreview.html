@@ -346,7 +346,6 @@
         e.editor.on( 'fileUploadResponse', function( evt ) {
             console.log('response',evt)
 
-            // Prevent the default response handler.
             evt.stop();
 
             // Get XHR and response.
@@ -371,6 +370,8 @@
 </script>
 
 <script>
+
+
 
     $(function () {
 
@@ -397,6 +398,7 @@
         let point = locationUrl.substr(locationUrl.lastIndexOf("/")+1)
 
         let isHaveParent = [[${isHaveParent == null?1:isHaveParent}]]
+
 
         if(isHaveParent == 0){
             $('#hiddenDiv').hide()
@@ -561,9 +563,9 @@
         });
 
         let previewParentId = textEntityId;
+        let startUrl =  "[[${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()}]]"
 
 
-        console.log(wysihtml5.views.Textarea)
 
         ///预览页面
         $('#previewSubmit').click(function () {
@@ -584,8 +586,7 @@
                             button: "确定",
                         }).then((value) => {
                             if(value){
-                                window.open(data.msg + "/" + previewParentId);
-                                // $('#previewA').empty().append($("<a></a>").attr("href",data.msg).html('点击进入预览页面'))
+                                window.open(startUrl + data.msg + "/" + previewParentId);
                             }
                         });
                     }else{

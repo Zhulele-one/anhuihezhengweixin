@@ -335,7 +335,7 @@
     });
 
 
-
+    let startUrl =  "[[${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()}]]"
     function delMultiData(){
         let checkedData = $('#dataList').find('div[aria-checked=true]').parent()
         if(checkedData.length === 0){
@@ -357,7 +357,7 @@
                 for (let i = 0; i < checkedData.length;i++){
 
                     let itemId = $(checkedData[i]).attr('itemId');
-                    let url = "/aboutme/deletePerson/" + itemId;
+                    let url = startUrl+ "/aboutme/deletePerson/" + itemId;
                     $.ajax({
                         type:"GET",
                         url:url,

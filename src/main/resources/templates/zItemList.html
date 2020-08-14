@@ -131,16 +131,16 @@
                                 <td>[[${item.name}]]</td>
                                 <td>[[${item.abstractText}]]</td>
                                 <td th:if="${item.imgUrl != null and item.imgUrl != ''}">
-                                    <a style="cursor: pointer;" class="imgShow" url="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()} + @{/getPicResource?path=}
+                                    <a style="cursor: pointer;" class="imgShow" url="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort()} + @{/getPicResource?path=}
                                         + @{'} + ${item.imgUrl} + @{'}">点击查看标题图片</a>
-                                    <img th:src="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()} + @{/getPicResource?path=}
+                                    <img th:src="${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort()} + @{/getPicResource?path=}
                                         + @{'} + ${item.imgUrl} + @{'}" style="display: none;" >
                                 </td>
                                 <td th:unless="${item.imgUrl != null and item.imgUrl != ''}">
                                     图片为空
                                 </td>
                                 <td class="text-center">
-                                    <a class="btn bg-olive btn-xs" th:href="@{/preview/editPage/}+${item.textId}+@{/1}">编辑</a>
+                                    <a class="btn bg-olive btn-xs" th:href="@{/preview/editPage/}+${item.textId + '/1'}">编辑</a>
                                     <button class="delBtn btn bg-olive btn-xs" th:attr="del_uri=@{/preview/deletePage/}+${item.id}">删除</button>
                                 </td>
                             </tr>
@@ -289,16 +289,18 @@
     let ajaxSetData= false;
 
 
+    let startUrl =  "[[${#httpServletRequest.getScheme() + '://' + #httpServletRequest.getServerName() + ':' + #httpServletRequest.getServerPort() + #httpServletRequest.getContextPath()}]]"
     function seeHTML() {
         let oldUrl = window.location.pathname
-        let point = oldUrl.indexOf("/")
-        let endPoint = oldUrl.indexOf("/",point+1)
-        let newUrl = oldUrl.substr(endPoint,oldUrl.length)
-        let newUrlb = oldUrl.substr(point+1,endPoint-1)
+        let point = oldUrl.lastIndexOf("/")
+        let endPoint = oldUrl.substr(0,point).lastIndexOf("/")
+        let newUrl = oldUrl.substr(0,endPoint)
+        let startPoint = newUrl.lastIndexOf("/")
+        let finalUrl = newUrl.substr(startPoint+1,endPoint-1)
+        let endUrl = oldUrl.substr(endPoint)
 
-        let host = window.location.host
 
-        let compUrl = "http://" + host + "/__" + newUrlb + "__" + newUrl
+        let compUrl = startUrl + "/__" + finalUrl + "__" + endUrl
 
 
         window.open(compUrl)
@@ -327,7 +329,7 @@
                 for (let i = 0; i < checkedData.length;i++){
 
                     let itemId = $(checkedData[i]).attr('itemId');
-                    let url = "/preview/deletePage/" + itemId;
+                    let url = startUrl + "/preview/deletePage/" + itemId;
                     delData(url)
                 }
             }
@@ -412,7 +414,6 @@
     $(function () {
         $('.delBtn').click(function () {
             let url = $(this).attr('del_uri');
-            console.log(url);
             swal({
                 title:"你确定要删除吗,删除后其对应的文章也会删除",
                 icon: "info",

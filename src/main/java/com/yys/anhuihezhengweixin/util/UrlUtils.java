@@ -29,9 +29,9 @@ public class UrlUtils {
     public static String COMPANYNEWSURL = "/news/message/" + COMPANYNEWSTEXTENTITY;
     public static String HANGYENEWSURL = "/news/message/" + HANGYENEWSTEXTENTITY;
 
-    public static String itemFilePath = "D:/hezheng/img/";
-    public static String FormFilePath = "D:/hezheng/recruit/";
-    public static String otherImgPath = "D:/hezheng/otherimg/";
+    public static String itemFilePath = "C:/hezheng/img/";
+    public static String FormFilePath = "C:/hezheng/recruit/";
+    public static String otherImgPath = "C:/hezheng/otherimg/";
 
 
     /**
